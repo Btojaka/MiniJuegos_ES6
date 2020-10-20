@@ -1,6 +1,6 @@
 /* Muestra por pantalla un mensaje al usuario para que elija la categoría que quiera
  en la última tirada. Guarda la elección del usuario en una variable y la devuelve.*/
-function elegir(){
+/*function elegir(){
     let eleccion = prompt(`Elige la categoría de tu carta 
     1 = Geografía, 2 = Arte, 3 = Espectáculos,
     4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
@@ -10,8 +10,8 @@ function elegir(){
 
 switch(elegir()){
     case 1:
-        alert("Has elegido Geografía");
-                
+        alert("Has elegido Geografía");*/
+
 }
 
 
