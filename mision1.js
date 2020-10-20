@@ -10,19 +10,19 @@ switch(elegir()){
         alert("Has elegido Geografía");
     break;
     case 2:
-        alert("Has elegido Geografía");
+        alert("Has elegido Arte");
     break;
     case 3:
-        alert("Has elegido Geografía");
+        alert("Has elegido Espectáculos");
     break;
     case 4:
-        alert("Has elegido Geografía");
+        alert("Has elegido Historia");
     break;
     case 5:
-        alert("Has elegido Geografía");
+        alert("Has elegido Ciencias");
     break;
     case 6:
-        alert("Has elegido Geografía");
+        alert("Has elegido Deporte");
     break;
     default:
         alert("Introduce un número del 1 al 6, vuelve a intentarlo.")
