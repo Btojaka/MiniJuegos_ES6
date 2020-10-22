@@ -4,15 +4,13 @@
 /* Muestra por pantalla un mensaje al usuario para que elija la categoría que quiera
    en la última tirada. Guarda la elección del usuario en una variable y la devuelve.*/
 
-let elegir = () => prompt(`Elige la categoría de tu carta 
-        1 = Geografía, 2 = Arte, 3 = Espectáculos,
-        4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
+let elegir = () => 
+    prompt(`Elige la categoría de tu carta 1 = Geografía, 2 = Arte, 
+    3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
 
 
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
-
-function comprobar(e){
-    
+let comprobar = (e) => {
     let eleccion = parseInt(e); // 
     document.write("Esta es la eleccion dentro de la funcion comprobar: " + eleccion); // PRUEBAS
        
@@ -20,7 +18,8 @@ function comprobar(e){
         case 1:
             alert("Has elegido Geografía");
             const [preguntas, respuestas] = geografia();
-            crearCarta(preguntas, respuestas);
+            crearCarta(preguntas);
+            // corregirForm(respuestas); // accion cada vez que le aprieta a comprobar
             break;
         case 2:
             alert("Has elegido Arte");
@@ -53,21 +52,50 @@ function comprobar(e){
             
     }
 }
+// Genera un número aleatorio entre 0 y el indice máximo -1 de ¡l vector o matriz 
+let indiceAleatorio = (v) =>  Math.floor(Math.random() * (v.length));
+
 
 // Crea la carta según la categoría elegida
-function crearCarta(p, r){
-    let q = p;
-    let a = r;
-    document.write(q, a);        
+let crearCarta = (p) => { 
+    let preg = p ;
+    console.log(preg); // PRUEBAS
+
+    let cont= 0;
+    let indice;
+    let pregx = "";
+    
+    // ejecuta 6 veces la función para obtener 6 preguntas aleatorias
+    do{
+    indice = indiceAleatorio(preg);
+    document.write("Indice aleatorio de la pregunta: " +indice); // PRUEBAS
+    pregx = preg[indice];
+    alert("Pregunta: "+pregx); 
+    cont++;
+    }while(cont<2);
+    
+    
+    
+        
 }
 
+// Compara respuestas introducidas con respuestas almacenadas
+
+/*function corregirForm(r){
+    //let resp = r;
+    let resp1 = prompt(preg1);
+    
+}*/
+
 // Preguntas y respuestas por categorías 
+// OJO AÑADIR HASTA 10 PREGUNTAS Y RESPUESTAS POR CATEGORIA PORQUE EN LA CARTA VAN 6
 let geografia = () => {
     let preguntas = 
     [
         " Capital de España? ",
         " Cuántas provicians tiene la C.Valenciana? ",
-        " Nombre de los puntos cardinales (separados por comas y en orden desde arriba, en sentido de las manecillas del reloj)"
+        `Nombre de los puntos cardinales (separados por comas y 
+         en orden desde arriba, en sentido de las manecillas del reloj)`
     ];
     
     let respuestas = 
