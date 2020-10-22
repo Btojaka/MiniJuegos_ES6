@@ -13,62 +13,74 @@ let elegir = () => prompt(`Elige la categoría de tu carta
 
 function comprobar(e){
     
-    let eleccion = e; // 
-    document.write("Esta es la eleccion dentro de la funcion comprobar: " +eleccion); // PRUEBAS
+    let eleccion = parseInt(e); // 
+    document.write("Esta es la eleccion dentro de la funcion comprobar: " + eleccion); // PRUEBAS
        
     switch (eleccion){
         case 1:
             alert("Has elegido Geografía");
-            cartaGeo();
+            const [preguntas, respuestas] = geografia();
+            crearCarta(preguntas, respuestas);
             break;
         case 2:
             alert("Has elegido Arte");
-            cartaArt();
+            //let categoria = arte();
+            //crearCarta(categoria);
             break;
         case 3:
             alert("Has elegido Espectáculos");
-            cartaEsp();
+            //let categoria = espectaculos();
+            //crearCarta(categoria);
             break;
         case 4:
             alert("Has elegido Historia");
-            cartaHis();
+            //let categoria = historia();
+            //crearCarta(categoria);
             break;
         case 5:
-            alert("Has elegido Ciencias");
-            cartaCien();
+            //alert("Has elegido Ciencias");
+            //let categoria = ciencia();
+            crearCarta(categoria);
             break;
         case 6:
             alert("Has elegido Deporte");
-            cartaDep();
+            //let categoria = deporte();
+            //crearCarta(categoria);
             break;
         default:
-            alert("")
+            alert(" estas en el default")
             //comprobar();
             
     }
 }
+
 // Crea la carta según la categoría elegida
-function crearCarta(categoria()){};
+function crearCarta(p, r){
+    let q = p;
+    let a = r;
+    document.write(q, a);        
+}
 
 // Preguntas y respuestas por categorías 
-function geografia(){
+let geografia = () => {
     let preguntas = 
     [
         " Capital de España? ",
         " Cuántas provicians tiene la C.Valenciana? ",
         " Nombre de los puntos cardinales (separados por comas y en orden desde arriba, en sentido de las manecillas del reloj)"
-    ]
+    ];
     
     let respuestas = 
     [
         "madrid",
         ["3", "tres"],
         ["norte, este, sur, oeste", "norte, este, sur y oeste"]
-    ]
+    ];
+
     return [preguntas, respuestas];
 }
 
-function arte(){
+let arte = () => {
     let preguntas = 
     [
         " Quién pintó la Mona Lisa? ",
@@ -83,10 +95,11 @@ function arte(){
         ["pablo picasso", "picasso"],
         ["girasoles", "los girasoles"]
     ];
+
     return [preguntas, respuestas];
 }
 
-function espectaculos(){
+let espectaculos = ()=> {
     let preguntas = 
     [
         " En música, a cuántos tiempos equivale una blanca? ",
@@ -105,7 +118,7 @@ function espectaculos(){
     return [preguntas, respuestas];
 }
 
-function historia(){
+let historia = () => {
     let preguntas = 
     [
         " Nombre (sólo) del Rey de España en 2020? ",
@@ -121,10 +134,11 @@ function historia(){
         "don quijote",
         "santa maria, la pinta, la niña"
     ];
+
     return [preguntas, respuestas];
 }
 
-function ciencia(){
+let ciencia = () => {
     let preguntas = 
     [
         " Cuántos minutos tiene una hora? ",
@@ -138,11 +152,28 @@ function ciencia(){
         ["8", "ocho"],
         [" amazonas ", "el amazonas"]
     ];
-    return [preguntas, respuestas];
 
+    return [preguntas, respuestas];
 }
 
+let deporte = () => {
+    let preguntas = 
+    [
+        " En qué deporte se utiliza un bate para darle a una pelota? ",
+        " Cómo se llama el mejor tenista español? ",
+        " uantos sets tienes que ganar para ganar un partido de voleibol? "
+    ];
 
+
+    let respuestas = 
+    [
+        ["beisbol", "baseball", "béisbol"], 
+        ["rafa nadal", "nadala", "rafael nadal"],
+        [" 3 ", " tres "]
+    ];
+
+    return [preguntas, respuestas];
+}
 
 
 
@@ -158,3 +189,5 @@ do{
 document.write(eleccionUsuario); // PRUEBAS
 
 comprobar(eleccionUsuario);
+
+ 
