@@ -1,4 +1,5 @@
 
+'use strict'
 // FUNCIONES
 
 /* Muestra por pantalla un mensaje al usuario para que elija la categoría que quiera
@@ -10,197 +11,259 @@ let elegir = () =>
     3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
 
 
+
+
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
 let comprobar = (e) => {
     let eleccion = parseInt(e); // 
-    document.write("Esta es la eleccion dentro de la funcion comprobar: " + eleccion); // PRUEBAS
-
+    //document.write("Esta es la eleccion dentro de la funcion comprobar: " + eleccion); // PRUEBAS
     switch (eleccion) {
         case 1:
             alert("Has elegido Geografía");
-            const [preguntas, respuestas] = geografia();
-            crearCarta(preguntas);
+            let geo = geografia();
+            crearCarta(geo);
             break;
         case 2:
             alert("Has elegido Arte");
-            //let categoria = arte();
-            //crearCarta(categoria);
+            let art = arte();
+            crearCarta(art);
             break;
         case 3:
             alert("Has elegido Espectáculos");
-            //let categoria = espectaculos();
-            //crearCarta(categoria);
+            let esp = espectaculos();
+            crearCarta(esp);
             break;
         case 4:
             alert("Has elegido Historia");
-            //let categoria = historia();
-            //crearCarta(categoria);
+            let his = historia();
+            crearCarta(his);
             break;
         case 5:
-            //alert("Has elegido Ciencias");
-            //let categoria = ciencia();
-            crearCarta(categoria);
+            alert("Has elegido Ciencias");
+            let cie = ciencia();
+            crearCarta(cie);
             break;
         case 6:
             alert("Has elegido Deporte");
-            //let categoria = deporte();
-            //crearCarta(categoria);
+            let dep = deporte();
+            crearCarta(dep);
             break;
         default:
-            alert(" estas en el default")
-        //comprobar();
-
+            alert("estás en el default, algo falló")
     }
 }
-// Genera un número aleatorio entre 0 y el indice máximo -1 de ¡l vector o matriz 
-let indiceAleatorio = (v) => Math.floor(Math.random() * (v.length));
+// Muestra las pregunta de la "carta"
+let mostrarValidar = (quest, answ) => {
+    
+    let preg1 = quest[0][0];
+    let preg2 = quest[1][0];
+    let preg3 = quest[2][0];
+    let preg4 = quest[3][0];
+    let preg5 = quest[4][0];
+    let preg6 = quest[5][0];
 
 
+    //respuestas buenas
+
+    let resp1 = answ[0][0];
+    let resp2 = answ[1][0];
+    let resp3 = answ[2][0];
+    let resp4 = answ[3][0];
+    let resp5 = answ[4][0];
+    let resp6 = answ[5][0];
+
+
+    document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+    document.write("</br>"+"respuesta 1: " +resp1+ "</br>");
+    document.write("respuesta 2: " +resp2+ "</br>");
+    document.write("respuesta 3:" +resp3+ "</br>");
+    document.write("respuesta 1: " +resp4+ "</br>");
+    document.write("respuesta 2: " +resp5+ "</br>");
+    document.write("respuesta 3:" +resp6+ "</br>");
+
+    document.getElementById('formulario').innerHTML =
+        `<form action="" method= "POST">
+
+            <label for="respUsu1">1. ${preg1}</label><br><br>
+            <input type="text" id="respUsu1"><br><br>
+            
+
+            <label for="respUsu2">2. ${preg2}</label><br><br>
+            <input type="text" id="respUsu2"><br><br>
+            
+
+            <label for="respUsu3">3. ${preg3}</label><br><br>
+            <input type="text" id="respUsu3" ><br><br>
+
+            <label for="respUsu4">4. ${preg4}</label><br><br>
+            <input type="text" id="respUsu4"><br><br>
+                    
+
+            <label for="respUsu5">5. ${preg5}</label><br><br>
+            <input type="text" id="respUsu5"><br><br>
+            
+
+            <label for="respUsu6">6. ${preg6}</label><br><br>
+            <input type="text" id="respUsu6" ><br><br>
+
+            <input type="submit" value="Comprobar" id="submit">
+
+            <br><br>
+
+        </form>` 
+            
+       
+}
 // Crea la carta según la categoría elegida
-let crearCarta = (p) => {
+let crearCarta = p => {
     let preg = p;
-    console.log(preg); // PRUEBAS
-
-    let cont = 0;
+    console.log("Array de preguntas: " +preg); // PRUEBAS 
     let indice;
-    let pregx = "";
-
-    // ejecuta 6 veces la función para obtener 6 preguntas aleatorias
-    do {
-        indice = indiceAleatorio(preg);
-        document.write("Indice aleatorio de la pregunta: " + indice); // PRUEBAS
-        pregx = preg[indice];
-        alert("Pregunta: " + pregx);
-        cont++;
-    } while (cont < 2); // PRUEBAS (cambiar a 6)
-
-
-
-
+    let pregx = [[],[],[],[],[],[]];
+    let respx = [[],[],[],[],[],[]];
+    let aux = [[],[],[],[],[],[],[],[],[],[]];
+    
+    // Genera un número aleatorio entre 0 y el indice máximo de la matriz de las preguntas
+    for (let i = 0; i <6; i++) { 
+       
+        //indiceFila= indiceAleatorio(preg);
+        indice = Math.floor(Math.random() * (preg.length));
+        console.log("Indice aleatorio: " + indice);
+        aux[i][0] = preg[indice][0]; // las preguntas se encuentran en la columna 0 de cualquier fila
+        aux[i][1] = preg[indice][1]; // las respuestas se encuentran en la columna 1 de la fila de su pregunta
+        pregx[i][0] = aux[i][0];
+        respx[i][0] = aux[i][1];
+        console.log("Preguntas aleatorias: " + pregx); // PRUEBAS
+        preg.splice(indice, 1); // Eliminará la pregunta ya elegida para no repetir en la elección aleatoria
+        console.log("respuestas de las preguntas: " + respx);
+        console.log("Lo que queda en preg: "+ preg);
+        
+    }
+        
+    mostrarValidar(pregx, respx);
 }
 
-// Compara respuestas introducidas con respuestas almacenadas
-
-/*function corregirForm(r){
-    //let resp = r;
-    let resp1 = prompt(preg1);
-    
-}*/
-
 // Preguntas y respuestas por categorías 
-// OJO AÑADIR HASTA 10 PREGUNTAS Y RESPUESTAS POR CATEGORIA PORQUE EN LA CARTA VAN 6
+// OJO AÑADIR HASTA 8 PREGUNTAS Y RESPUESTAS POR CATEGORIA PORQUE EN LA CARTA VAN 6
 let geografia = () => {
     let preguntas =
         [
-            " Capital de España? ",
-            " Cuántas provicians tiene la C.Valenciana? ",
-            `Nombre de los puntos cardinales (separados por comas y 
-         en orden desde arriba, en sentido de las manecillas del reloj)`
+            [" Capital de España? ", "madrid"],
+            [" Cuántas provicians tiene la C.Valenciana? (en número)", "3"],
+            [` Nombre de los puntos cardinales (separados por comas y 
+            en orden desde arriba, en sentido de las manecillas del reloj)`, "norte, este, sur, oeste"],
+            [" Cuántos continentes hay en el mundo? (en número)", "6"],
+            [" Cuál es la montaña más alta del mundo? (con artículo el/la)", "el averest"],
+            [" qué país tiene mayor número de habitantes en el mundo?", "china"],
+            [" En qué país se encuentra el Taj Mahal? (con artículo)", "la india"],
+            [" Cuántos países tiene África? 54, 37 o 61?", "54"],
+            [" En qué hemisferio se encuentra Nigeria? Norte o Sur?", "norte"],
+            [" Cuál es el estado más gfrande de los Estados Unidos?", "alaska"]
         ];
 
-    let respuestas =
+    /*let respuestas =
         [
             "madrid",
-            ["3", "tres"],
-            ["norte, este, sur, oeste", "norte, este, sur y oeste"]
-        ];
+            "3",
+            "norte, este, sur, oeste"
+        ];*/
 
-    return [preguntas, respuestas];
+    return preguntas;
 }
 
 let arte = () => {
     let preguntas =
         [
-            " Quién pintó la Mona Lisa? ",
-            " Quién pintó el Guernica? ",
-            " Cuáles son las flores más famosas pintadas por Van Gogh? "
+            [" Quién pintó la Mona Lisa? (nombre y apellido)", "leonardo da vinci"],
+            [" Quién pintó el Guernica? (nombre y apellido) ", "pablo picasso"],
+            [" Cuáles son las flores más famosas pintadas por Van Gogh? (con artículo)", "los girasoles"]
         ];
 
 
-    let respuestas =
+    /*let respuestas =
         [
             ["leonardo da vinci", "da vinci"],
             ["pablo picasso", "picasso"],
             ["girasoles", "los girasoles"]
-        ];
+        ];*/
 
-    return [preguntas, respuestas];
+    return preguntas;
 }
 
 let espectaculos = () => {
     let preguntas =
         [
-            " En música, a cuántos tiempos equivale una blanca? ",
-            " EL piano es un instrumento de: ",
-            " Pelicula Disney más taquillera de la historia? "
+            [" En música, a cuántos tiempos equivale una blanca? ", "2"],
+            [" El piano es un instrumento de: ","cuerda"],
+            [" Pelicula Disney más taquillera de la historia? ", "el rey leon"]
         ];
 
 
-    let respuestas =
+    /*let respuestas =
         [
             ["2", "dos"],
             "cuerda",
             ["el rey leon", "el rey león"]
-        ];
+        ];*/
 
-    return [preguntas, respuestas];
+        return preguntas;
 }
 
 let historia = () => {
     let preguntas =
         [
-            " Nombre (sólo) del Rey de España en 2020? ",
-            " Cuál es el personaje más conocido de Miguel de Cervantes? ",
-            `Cómo se llaman las tres carabelas que fueron a América con Cristóbal Colón 
-        (separa sus nombres por comas)?`
+            [" Nombre (sólo) del Rey de España en 2020? ", "felipe"],
+            [" Cuál es el personaje más conocido de Miguel de Cervantes? ", "don quijote"],
+            [` Cómo se llaman las tres carabelas que fueron a América con Cristóbal Colón 
+            (separa sus nombres por comas y pon artículos en la que corresponda)?`, "santa maria, la pinta, la niña"]
         ];
 
 
-    let respuestas =
+    /*let respuestas =
         [
             "Felipe",
             "don quijote",
             "santa maria, la pinta, la niña"
-        ];
+        ];*/
 
-    return [preguntas, respuestas];
+        return preguntas;
 }
 
 let ciencia = () => {
     let preguntas =
         [
-            " Cuántos minutos tiene una hora? ",
-            " Cuántas patas tiene una araña? ",
-            " Cuál es el río más caudaloso del mundo? "
+            [" Cuántos minutos tiene una hora? (en número) ", "60"],
+            [" Cuántas patas tiene una araña? (en número)", "8"],
+            [" Cuál es el río más caudaloso del mundo? (con artículo)", "el amazonas"]
         ];
 
-    let respuestas =
+    /*let respuestas =
         [
             ["60", "sesenta"],
             ["8", "ocho"],
             [" amazonas ", "el amazonas"]
-        ];
+        ];*/
 
-    return [preguntas, respuestas];
+        return preguntas;
 }
 
 let deporte = () => {
     let preguntas =
         [
-            " En qué deporte se utiliza un bate para darle a una pelota? ",
-            " Cómo se llama el mejor tenista español? ",
-            " uantos sets tienes que ganar para ganar un partido de voleibol? "
+            [" En qué deporte se utiliza un bate para darle a una pelota? (en español sin tildes)" , "beisbol"],
+            [" Cómo se llama el mejor tenista español? (nombre y apellido)", "rafa nadal"],
+            [" Cuantos sets tienes que ganar para ganar un partido de voleibol? (en número)", "3"]
         ];
 
 
-    let respuestas =
+    /*let respuestas =
         [
             ["beisbol", "baseball", "béisbol"],
             ["rafa nadal", "nadala", "rafael nadal"],
             [" 3 ", " tres "]
-        ];
+        ];*/
 
-    return [preguntas, respuestas];
+        return preguntas;
 }
 
 
@@ -214,7 +277,7 @@ do {
 
 } while (eleccionUsuario < 1 || eleccionUsuario > 6);
 
-document.write(eleccionUsuario); // PRUEBAS
+// document.write(eleccionUsuario); // PRUEBAS
 
 comprobar(eleccionUsuario);
 
