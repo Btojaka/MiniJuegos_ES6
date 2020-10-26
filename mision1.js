@@ -111,21 +111,32 @@ let mostrarValidar = (quest, answ) => {
             <br><br>
 
         </form>` 
-            
-       
+
+    /*document.getElementById('respUsu1').innerHTML = {
+        if(respUsu1 === resp1){
+            document.write("<strong> respuesta correcta numero 1. </strong></br>");
+        }else{
+            document.write("<h2>respuesta incorrecta</h2>");
+        }
+    }*/
 }
+
+            
+
+
+
 // Crea la carta según la categoría elegida
-let crearCarta = p => {
+function crearCarta(p) {
     let preg = p;
-    console.log("Array de preguntas: " +preg); // PRUEBAS 
+    console.log("Array de preguntas: " + preg); // PRUEBAS 
     let indice;
-    let pregx = [[],[],[],[],[],[]];
-    let respx = [[],[],[],[],[],[]];
-    let aux = [[],[],[],[],[],[],[],[],[],[]];
-    
+    let pregx = [[], [], [], [], [], []];
+    let respx = [[], [], [], [], [], []];
+    let aux = [[], [], [], [], [], [], [], [], [], []];
+
     // Genera un número aleatorio entre 0 y el indice máximo de la matriz de las preguntas
-    for (let i = 0; i <6; i++) { 
-       
+    for (let i = 0; i < 6; i++) {
+
         //indiceFila= indiceAleatorio(preg);
         indice = Math.floor(Math.random() * (preg.length));
         console.log("Indice aleatorio: " + indice);
@@ -136,10 +147,10 @@ let crearCarta = p => {
         console.log("Preguntas aleatorias: " + pregx); // PRUEBAS
         preg.splice(indice, 1); // Eliminará la pregunta ya elegida para no repetir en la elección aleatoria
         console.log("respuestas de las preguntas: " + respx);
-        console.log("Lo que queda en preg: "+ preg);
-        
+        console.log("Lo que queda en preg: " + preg);
+
     }
-        
+
     mostrarValidar(pregx, respx);
 }
 
@@ -161,13 +172,6 @@ let geografia = () => {
             [" Cuál es el estado más gfrande de los Estados Unidos?", "alaska"]
         ];
 
-    /*let respuestas =
-        [
-            "madrid",
-            "3",
-            "norte, este, sur, oeste"
-        ];*/
-
     return preguntas;
 }
 
@@ -179,14 +183,6 @@ let arte = () => {
             [" Cuáles son las flores más famosas pintadas por Van Gogh? (con artículo)", "los girasoles"]
         ];
 
-
-    /*let respuestas =
-        [
-            ["leonardo da vinci", "da vinci"],
-            ["pablo picasso", "picasso"],
-            ["girasoles", "los girasoles"]
-        ];*/
-
     return preguntas;
 }
 
@@ -197,14 +193,6 @@ let espectaculos = () => {
             [" El piano es un instrumento de: ","cuerda"],
             [" Pelicula Disney más taquillera de la historia? ", "el rey leon"]
         ];
-
-
-    /*let respuestas =
-        [
-            ["2", "dos"],
-            "cuerda",
-            ["el rey leon", "el rey león"]
-        ];*/
 
         return preguntas;
 }
@@ -218,14 +206,6 @@ let historia = () => {
             (separa sus nombres por comas y pon artículos en la que corresponda)?`, "santa maria, la pinta, la niña"]
         ];
 
-
-    /*let respuestas =
-        [
-            "Felipe",
-            "don quijote",
-            "santa maria, la pinta, la niña"
-        ];*/
-
         return preguntas;
 }
 
@@ -237,13 +217,6 @@ let ciencia = () => {
             [" Cuál es el río más caudaloso del mundo? (con artículo)", "el amazonas"]
         ];
 
-    /*let respuestas =
-        [
-            ["60", "sesenta"],
-            ["8", "ocho"],
-            [" amazonas ", "el amazonas"]
-        ];*/
-
         return preguntas;
 }
 
@@ -254,14 +227,6 @@ let deporte = () => {
             [" Cómo se llama el mejor tenista español? (nombre y apellido)", "rafa nadal"],
             [" Cuantos sets tienes que ganar para ganar un partido de voleibol? (en número)", "3"]
         ];
-
-
-    /*let respuestas =
-        [
-            ["beisbol", "baseball", "béisbol"],
-            ["rafa nadal", "nadala", "rafael nadal"],
-            [" 3 ", " tres "]
-        ];*/
 
         return preguntas;
 }
