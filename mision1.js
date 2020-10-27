@@ -97,6 +97,8 @@ let mostrarPreg = (quest) => {
 
 }   
 
+// BORRAR modifico algo para hacer commit
+
 let validarRespuestas = (answ) =>{
      //respuestas buenas
 
