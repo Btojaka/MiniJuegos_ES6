@@ -56,11 +56,11 @@ let comprobar = (e) => {
 let mostrarPreg = (quest) => {
     
     let preg1 = quest[0][0];
-    let preg2 = quest[1][0];
+    /*let preg2 = quest[1][0];
     let preg3 = quest[2][0];
     let preg4 = quest[3][0];
     let preg5 = quest[4][0];
-    let preg6 = quest[5][0];
+    let preg6 = quest[5][0];*/
 
     // Manipulamos el DOM y capturamos/incrustamos en el html lo siguiente donde aparece el id formulario
 
@@ -70,8 +70,14 @@ let mostrarPreg = (quest) => {
             <label for="respUsu1">1. ${preg1}</label><br><br>
             <input type="text" id="respUsu1"><br><br
             
+            <input type="submit" value="Comprobar" id="submit">
 
-            <label for="respUsu2">2. ${preg2}</label><br><br>
+            <br><br>
+
+        </form>`
+        //validarRespuestas(preg1);    
+
+            /*<label for="respUsu2">2. ${preg2}</label><br><br>
             <input type="text" id="respUsu2"><br><br>
             
 
@@ -93,7 +99,7 @@ let mostrarPreg = (quest) => {
 
             <br><br>
 
-        </form>` 
+        </form>` */
 
 }   
 
@@ -103,20 +109,20 @@ let validarRespuestas = (answ) =>{
      //respuestas buenas
 
     let resp1 = answ[0][0];
-    let resp2 = answ[1][0];
+    /*let resp2 = answ[1][0];
     let resp3 = answ[2][0];
     let resp4 = answ[3][0];
     let resp5 = answ[4][0];
-    let resp6 = answ[5][0];
+    let resp6 = answ[5][0];*/
 
 
     document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
     document.write("</br>"+"respuesta 1: " +resp1+ "</br>");
-    document.write("respuesta 2: " +resp2+ "</br>");
+    /*document.write("respuesta 2: " +resp2+ "</br>");
     document.write("respuesta 3:" +resp3+ "</br>");
     document.write("respuesta 1: " +resp4+ "</br>");
     document.write("respuesta 2: " +resp5+ "</br>");
-    document.write("respuesta 3:" +resp6+ "</br>");
+    document.write("respuesta 3:" +resp6+ "</br>");*/
 
     
     /* captura del código html lo que tenga los id siguientes (que serán las respuestas introducidas por los usuarios)
@@ -124,54 +130,63 @@ let validarRespuestas = (answ) =>{
     let cartaSubmit = document.querySelector("#carta"); 
     
     
-    cartaSubmit.addEventListener('submit', function(){
+    cartaSubmit.addEventListener("submit", function(){
 
         console.log("*****RESPUESTAS ENVIADAS****");
         let rusu1 = document.querySelector("#respUsu1").value;
-        let rusu2 = document.querySelector("#respUsu2").value;
+        /*let rusu2 = document.querySelector("#respUsu2").value;
         let rusu3 = document.querySelector("#respUsu3").value;
         let rusu4 = document.querySelector("#respUsu4").value;
         let rusu5 = document.querySelector("#respUsu5").value;
-        let rusu6 = document.querySelector("#respUsu6").value;
+        let rusu6 = document.querySelector("#respUsu6").value;*/
         let correct = "<strong> BIEN! es:  </strong></br>";
         let incorrect = "<h2>OOOOOHHHHH era --> </h2>";
+        let marcador = 0;
+        let aciertos = 0;
+        let errores = 0;
     
+        do{
+            if((rusu1.toLowerCase()) === resp1){
+                document.write(correct + " "+ resp1 );
+                marcador = marcador + 1;
+                aciertos = aciertos + 1;
+                document.write("tus aciertos son = " + aciertos);
+                document.write(`<h2>MARCADOR: ${errores}</h2>`);
+            }else{
+                document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
+                errores += 1;
+            }
 
-        if((rusu1.toLowerCase()) === resp1){
-            document.write(correct + " "+ resp1 );
-        }else{
-            document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
-        }
+            /*if((rusu2.toLowerCase())=== resp2){
+                document.write(correct + " "+ resp2);
+            }else{
+                document.write(incorrect + " "+ resp2);
+            }
 
-        if((rusu2.toLowerCase())=== resp2){
-            document.write(correct + " "+ resp2);
-        }else{
-            document.write(incorrect + " "+ resp2);
-        }
+            if((rusu3.toLowerCase())=== resp3){
+                document.write(correct +" " + resp3);
+            }else{
+                document.write(incorrect + " " + resp3);
+            }
 
-        if((rusu3.toLowerCase())=== resp3){
-            document.write(correct +" " + resp3);
-        }else{
-            document.write(incorrect + " " + resp3);
-        }
+            if((rusu4.toLowerCase())=== resp4){
+                document.write(correct+ " " + resp4);
+            }else{
+                document.write(incorrect+ " " + resp4);
+            }
 
-        if((rusu4.toLowerCase())=== resp4){
-            document.write(correct+ " " + resp4);
-        }else{
-            document.write(incorrect+ " " + resp4);
-        }
+            if((rusu5.toLowerCase())=== resp5){
+                document.write(correct+ " " + resp5);
+            }else{
+                document.write(incorrect + " " + resp5);
+            }
 
-        if((rusu5.toLowerCase())=== resp5){
-            document.write(correct+ " " + resp5);
-        }else{
-            document.write(incorrect + " " + resp5);
-        }
-
-        if((rusu6.toLowerCase())=== resp6){
-            document.write(correct+ " " + resp6);
-        }else{
-            document.write(incorrect + " " + resp6);
-        }
+            if((rusu6.toLowerCase())=== resp6){
+                document.write(correct+ " " + resp6);
+            }else{
+                document.write(incorrect + " " + resp6);
+            }*/
+        }while((aciertos < 4) || (errores < 3));
 
     });
 
