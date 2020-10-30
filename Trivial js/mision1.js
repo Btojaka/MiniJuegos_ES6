@@ -1,5 +1,5 @@
 
-'use strict'
+'use strict';
 // FUNCIONES
 
 /* Muestra por pantalla un mensaje al usuario para que elija la categoría que quiera
@@ -8,9 +8,6 @@
 let elegir = () =>
     prompt(`Elige la categoría de tu carta 1 = Geografía, 2 = Arte, 
     3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
-
-// corregirForm(respuestas); // accion cada vez que le aprieta a comprobar
-
 
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
 let categoria = (e) => {
@@ -51,120 +48,91 @@ let categoria = (e) => {
             alert("estás en el default, algo falló")
     }
 }
-// Muestra las pregunta de la "carta"
+// Va mostrando una por una las preguntas de la "carta" y el usuario va contestándolas
 let mostrarPreg = (quest) => {
     
-    let preg1 = quest[0][0];
+    /*let preg1 = quest[0][0];
     let preg2 = quest[1][0];
-    /*let preg3 = quest[2][0];
+    let preg3 = quest[2][0];
     let preg4 = quest[3][0];
     let preg5 = quest[4][0];
     let preg6 = quest[5][0];*/
 
-    // Manipulamos el DOM y capturamos/incrustamos en el html lo siguiente donde aparece el id formulario
+    // captura en cada variable la respuesta del usuario
 
-    let respUsu1 = prompt(preg1);
-    let respUsu2 = prompt(preg2);
-    let respUsu = [respUsu1, respUsu2];
+    let respUsu1 = prompt(quest[0][0]); 
+    let respUsu2 = prompt(quest[1][0]);
+    let respUsu3 = prompt(quest[2][0]);
+    let respUsu4 = prompt(quest[3][0]);
+    let respUsu5 = prompt(quest[4][0]);
+    let respUsu6 = prompt(quest[5][0]);
+    let respUsu = [respUsu1, respUsu2, respUsu3, respUsu4, respUsu5, respUsu6];
 
-    /*document.getElementById('pregunta1', 'pregunta2').innerHTML =
-        `<form action="#" method= "POST" id="carta" onsubmit="return false;" >
-
-            <label for="respUsu1">1. ${preg1}</label><br><br>
-            <input type="text" id="respUsu1"><br><br>
-            
-            <input type="submit" value="Enviar" id="submit">
-
-            <br><br>
-
-            <label for="respUsu2">2. ${preg2}</label><br><br>
-            <input type="text" id="respUsu2"><br><br>
-            
-            <input type="submit" value="Enviar" id="submit">
-
-            <br><br>
-
-        </form>`
-        //validarRespuestas(preg1);    
-
-            
-            
-
-            <label for="respUsu3">3. ${preg3}</label><br><br>
-            <input type="text" id="respUsu3" ><br><br>
-
-            <label for="respUsu4">4. ${preg4}</label><br><br>
-            <input type="text" id="respUsu4"><br><br>
-                    
-
-            <label for="respUsu5">5. ${preg5}</label><br><br>
-            <input type="text" id="respUsu5"><br><br>
-            
-
-            <label for="respUsu6">6. ${preg6}</label><br><br>
-            <input type="text" id="respUsu6" ><br><br>
-
-            <input type="submit" value="Comprobar" id="submit">
-
-            <br><br>
-
-        </form>` */
-    return respUsu;
+    return respUsu; 
 }   
 
-// BORRAR modifico algo para hacer commit
+/* compara las respuestas del sistema con las respuestas introducidas por 
+el usuario para sumar puntos al marcador y saber cuando y cómo termina la partida */
 
 let validarRespuestas = (answ, respUsu) =>{
-     //respuestas buenas
+     
+    //respuestas buenas
 
-    let resp1 = answ[0][0];
+    let resp = answ;
+    console.log(resp);
+    /*let resp1 = answ[0][0];
     let resp2 = answ[1][0];
-    /*let resp3 = answ[2][0];
+    let resp3 = answ[2][0];
     let resp4 = answ[3][0];
     let resp5 = answ[4][0];
     let resp6 = answ[5][0];*/
 
-    let rusu1 = respUsu[0];
-    let rusu2 = respUsu[1];
-    document.write(rusu1);
-    document.write(rusu2);
+    // respuestas del usuario
+    let rusu = respUsu;
+    console.log(rusu);
+    //let rusu1 = respUsu[0];
+   // let rusu2 = respUsu[1];
 
-
-    document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
-    document.write("</br>"+"respuesta 1: " +resp1+ "</br>");
-    document.write("respuesta 2: " +resp2+ "</br>");
-    /*document.write("respuesta 3:" +resp3+ "</br>");
-    document.write("respuesta 1: " +resp4+ "</br>");
-    document.write("respuesta 2: " +resp5+ "</br>");
-    document.write("respuesta 3:" +resp6+ "</br>");*/
-
-    
-    /* captura del código html lo que tenga los id siguientes (que serán las respuestas introducidas por los usuarios)
-        y las guarda en variables para compararlas con las respuestas correctas*/
-    /*let cartaSubmit = document.querySelector("#carta"); 
-    
-    
-    cartaSubmit.addEventListener("submit", function(){
-
-        console.log("*****RESPUESTAS ENVIADAS****");
-        let rusu1 = document.querySelector("#respUsu1").value;
-        let rusu2 = document.querySelector("#respUsu2").value;
-
-        document.write("Respuesta 1 del usuario: " + rusu1+ "<br>");
-        document.write("Respuesta 2 del usuario: " + rusu2+ "<br>");
-       /* let rusu3 = document.querySelector("#respUsu3").value;
-        let rusu4 = document.querySelector("#respUsu4").value;
-        let rusu5 = document.querySelector("#respUsu5").value;
-        let rusu6 = document.querySelector("#respUsu6").value;*/
-    
-    let correct = "<strong> BIEN! es:  </strong></br>";
-    let incorrect = "<h2>OOOOOHHHHH era --> </h2>";
     let marcador = 0;
     let aciertos = 0;
     let errores = 0;
+    let aux;
 
-    
-    if(rusu1.toLowerCase() === resp1){
+    for(let i=0; i<resp.length; i++){
+        aux = resp[i];
+        for(let j=0; j<rusu.length; j++){
+            if(aux == rusu[j]){
+                aciertos += 1;
+                marcador = aciertos;
+                alert(`Acertaste! Sigue así! 
+                <h3>MARCADOR: ${marcador}</h3>`);
+            }else{
+                errores += 1;
+                alert(`Fallaste, vuelve a intentarlo! 
+                <h3>MARCADOR: ${marcador}</h3>`);
+            }
+        }
+    }
+    /*rusu.forEach(function (element1, index) {
+        resp.forEach(function(element2, index){
+            if(element1 === element2){
+                aciertos += 1;
+                marcador = aciertos;
+                alert(`Acertaste! Sigue así! 
+                <h3>MARCADOR: ${marcador}</h3>`);
+            }else{
+                errores += 1;
+                alert(`Fallaste, vuelve a intentarlo!`);
+//<h3>MARCADOR: ${marcador}</h3>
+                }
+
+            });
+        
+    });*/
+
+
+
+    /*if(rusu[0].toLowerCase() === resp1){
         document.write(correct + " "+ resp1 );
         marcador = marcador + 1;
         aciertos = aciertos + 1;
@@ -191,61 +159,9 @@ let validarRespuestas = (answ, respUsu) =>{
     }
     document.write(`<h3>MARCADOR: ${marcador}</h3>`);
     document.write(`<h4> has cometido ${errores} errores`);
-        //do{
-       /* if(rusu1.toLowerCase() === resp1){
-            document.write(correct + " "+ resp1 );
-            marcador = marcador + 1;
-            aciertos = aciertos + 1;
-            //document.write("tus aciertos son = " + aciertos);
-            document.write(`<h3>MARCADOR: ${marcador}</h3>`);
-            
-        }else{
-            document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
-            errores += 1;
-            document.write(`<h4> has cometido ${errores} errores`);
-        }
-
-        if(rusu2.toLowerCase() === resp2){
-            document.write(correct + " "+ resp2);
-            marcador = marcador + 1;
-            aciertos = aciertos + 1;
-            document.write("tus aciertos son = " + aciertos);
-            document.write(`<h3>MARCADOR: ${marcador}</h3>`);
-        }else{
-            document.write(incorrect + " "+ resp2);
-            errores = errores +1;
-            document.write(`<h4> has cometido ${errores} errores`);
-        }
-
-        if((rusu3.toLowerCase())=== resp3){
-            document.write(correct +" " + resp3);
-        }else{
-            document.write(incorrect + " " + resp3);
-        }
-
-        if((rusu4.toLowerCase())=== resp4){
-            document.write(correct+ " " + resp4);
-        }else{
-            document.write(incorrect+ " " + resp4);
-        }
-
-        if((rusu5.toLowerCase())=== resp5){
-            document.write(correct+ " " + resp5);
-        }else{
-            document.write(incorrect + " " + resp5);
-        }
-
-        if((rusu6.toLowerCase())=== resp6){
-            document.write(correct+ " " + resp6);
-        }else{
-            document.write(incorrect + " " + resp6);
-        }*/
-        //}while((aciertos < 4) || (errores < 3));
-
-   // });
 
     document.getElementById('marcador').innerHTML =
-    `<h3>Llevas ${marcador} puntos</h3>`
+    `<h3>Llevas ${marcador} puntos</h3>`*/
     
 }
 
