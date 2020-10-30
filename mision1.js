@@ -7,16 +7,15 @@
 
 let elegir = () =>
     prompt(`Elige la categoría de tu carta 1 = Geografía, 2 = Arte, 
-    // corregirForm(respuestas); // accion cada vez que le aprieta a comprobar
     3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
 
-
+// corregirForm(respuestas); // accion cada vez que le aprieta a comprobar
 
 
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
-let comprobar = (e) => {
+let categoria = (e) => {
     let eleccion = parseInt(e); // 
-    //document.write("Esta es la eleccion dentro de la funcion comprobar: " + eleccion); // PRUEBAS
+    //document.write("Esta es la eleccion dentro de la funcion categoria: " + eleccion); // PRUEBAS
     switch (eleccion) {
         case 1:
             alert("Has elegido Geografía");
@@ -56,29 +55,39 @@ let comprobar = (e) => {
 let mostrarPreg = (quest) => {
     
     let preg1 = quest[0][0];
-    /*let preg2 = quest[1][0];
-    let preg3 = quest[2][0];
+    let preg2 = quest[1][0];
+    /*let preg3 = quest[2][0];
     let preg4 = quest[3][0];
     let preg5 = quest[4][0];
     let preg6 = quest[5][0];*/
 
     // Manipulamos el DOM y capturamos/incrustamos en el html lo siguiente donde aparece el id formulario
 
-    document.getElementById('formulario').innerHTML =
+    let respUsu1 = prompt(preg1);
+    let respUsu2 = prompt(preg2);
+    let respUsu = [respUsu1, respUsu2];
+
+    /*document.getElementById('pregunta1', 'pregunta2').innerHTML =
         `<form action="#" method= "POST" id="carta" onsubmit="return false;" >
 
             <label for="respUsu1">1. ${preg1}</label><br><br>
-            <input type="text" id="respUsu1"><br><br
+            <input type="text" id="respUsu1"><br><br>
             
-            <input type="submit" value="Comprobar" id="submit">
+            <input type="submit" value="Enviar" id="submit">
+
+            <br><br>
+
+            <label for="respUsu2">2. ${preg2}</label><br><br>
+            <input type="text" id="respUsu2"><br><br>
+            
+            <input type="submit" value="Enviar" id="submit">
 
             <br><br>
 
         </form>`
         //validarRespuestas(preg1);    
 
-            /*<label for="respUsu2">2. ${preg2}</label><br><br>
-            <input type="text" id="respUsu2"><br><br>
+            
             
 
             <label for="respUsu3">3. ${preg3}</label><br><br>
@@ -100,26 +109,31 @@ let mostrarPreg = (quest) => {
             <br><br>
 
         </form>` */
-
+    return respUsu;
 }   
 
 // BORRAR modifico algo para hacer commit
 
-let validarRespuestas = (answ) =>{
+let validarRespuestas = (answ, respUsu) =>{
      //respuestas buenas
 
     let resp1 = answ[0][0];
-    /*let resp2 = answ[1][0];
-    let resp3 = answ[2][0];
+    let resp2 = answ[1][0];
+    /*let resp3 = answ[2][0];
     let resp4 = answ[3][0];
     let resp5 = answ[4][0];
     let resp6 = answ[5][0];*/
 
+    let rusu1 = respUsu[0];
+    let rusu2 = respUsu[1];
+    document.write(rusu1);
+    document.write(rusu2);
+
 
     document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
     document.write("</br>"+"respuesta 1: " +resp1+ "</br>");
-    /*document.write("respuesta 2: " +resp2+ "</br>");
-    document.write("respuesta 3:" +resp3+ "</br>");
+    document.write("respuesta 2: " +resp2+ "</br>");
+    /*document.write("respuesta 3:" +resp3+ "</br>");
     document.write("respuesta 1: " +resp4+ "</br>");
     document.write("respuesta 2: " +resp5+ "</br>");
     document.write("respuesta 3:" +resp6+ "</br>");*/
@@ -127,69 +141,112 @@ let validarRespuestas = (answ) =>{
     
     /* captura del código html lo que tenga los id siguientes (que serán las respuestas introducidas por los usuarios)
         y las guarda en variables para compararlas con las respuestas correctas*/
-    let cartaSubmit = document.querySelector("#carta"); 
+    /*let cartaSubmit = document.querySelector("#carta"); 
     
     
     cartaSubmit.addEventListener("submit", function(){
 
         console.log("*****RESPUESTAS ENVIADAS****");
         let rusu1 = document.querySelector("#respUsu1").value;
-        /*let rusu2 = document.querySelector("#respUsu2").value;
-        let rusu3 = document.querySelector("#respUsu3").value;
+        let rusu2 = document.querySelector("#respUsu2").value;
+
+        document.write("Respuesta 1 del usuario: " + rusu1+ "<br>");
+        document.write("Respuesta 2 del usuario: " + rusu2+ "<br>");
+       /* let rusu3 = document.querySelector("#respUsu3").value;
         let rusu4 = document.querySelector("#respUsu4").value;
         let rusu5 = document.querySelector("#respUsu5").value;
         let rusu6 = document.querySelector("#respUsu6").value;*/
-        let correct = "<strong> BIEN! es:  </strong></br>";
-        let incorrect = "<h2>OOOOOHHHHH era --> </h2>";
-        let marcador = 0;
-        let aciertos = 0;
-        let errores = 0;
     
-        do{
-            if((rusu1.toLowerCase()) === resp1){
-                document.write(correct + " "+ resp1 );
-                marcador = marcador + 1;
-                aciertos = aciertos + 1;
-                document.write("tus aciertos son = " + aciertos);
-                document.write(`<h2>MARCADOR: ${errores}</h2>`);
-            }else{
-                document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
-                errores += 1;
-            }
+    let correct = "<strong> BIEN! es:  </strong></br>";
+    let incorrect = "<h2>OOOOOHHHHH era --> </h2>";
+    let marcador = 0;
+    let aciertos = 0;
+    let errores = 0;
 
-            /*if((rusu2.toLowerCase())=== resp2){
-                document.write(correct + " "+ resp2);
-            }else{
-                document.write(incorrect + " "+ resp2);
-            }
+    
+    if(rusu1.toLowerCase() === resp1){
+        document.write(correct + " "+ resp1 );
+        marcador = marcador + 1;
+        aciertos = aciertos + 1;
+        //document.write("tus aciertos son = " + aciertos);
+        //document.write(`<h3>MARCADOR: ${marcador}</h3>`);
+        
+    }else{
+        document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
+        errores += 1;
+        //document.write(`<h4> has cometido ${errores} errores`);
+    }
 
-            if((rusu3.toLowerCase())=== resp3){
-                document.write(correct +" " + resp3);
-            }else{
-                document.write(incorrect + " " + resp3);
-            }
+    if(rusu2.toLowerCase() === resp2){
+        document.write(correct + " "+ resp2 );
+        marcador = marcador + 1;
+        aciertos = aciertos + 1;
+        //document.write("tus aciertos son = " + aciertos);
+        
+        
+    }else{
+        document.write(incorrect + resp2+ " **tu respuesta fue: " + rusu2);
+        errores += 1;
+        document.write(`<h4> has cometido ${errores} errores`);
+    }
+    document.write(`<h3>MARCADOR: ${marcador}</h3>`);
+    document.write(`<h4> has cometido ${errores} errores`);
+        //do{
+       /* if(rusu1.toLowerCase() === resp1){
+            document.write(correct + " "+ resp1 );
+            marcador = marcador + 1;
+            aciertos = aciertos + 1;
+            //document.write("tus aciertos son = " + aciertos);
+            document.write(`<h3>MARCADOR: ${marcador}</h3>`);
+            
+        }else{
+            document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
+            errores += 1;
+            document.write(`<h4> has cometido ${errores} errores`);
+        }
 
-            if((rusu4.toLowerCase())=== resp4){
-                document.write(correct+ " " + resp4);
-            }else{
-                document.write(incorrect+ " " + resp4);
-            }
+        if(rusu2.toLowerCase() === resp2){
+            document.write(correct + " "+ resp2);
+            marcador = marcador + 1;
+            aciertos = aciertos + 1;
+            document.write("tus aciertos son = " + aciertos);
+            document.write(`<h3>MARCADOR: ${marcador}</h3>`);
+        }else{
+            document.write(incorrect + " "+ resp2);
+            errores = errores +1;
+            document.write(`<h4> has cometido ${errores} errores`);
+        }
 
-            if((rusu5.toLowerCase())=== resp5){
-                document.write(correct+ " " + resp5);
-            }else{
-                document.write(incorrect + " " + resp5);
-            }
+        if((rusu3.toLowerCase())=== resp3){
+            document.write(correct +" " + resp3);
+        }else{
+            document.write(incorrect + " " + resp3);
+        }
 
-            if((rusu6.toLowerCase())=== resp6){
-                document.write(correct+ " " + resp6);
-            }else{
-                document.write(incorrect + " " + resp6);
-            }*/
-        }while((aciertos < 4) || (errores < 3));
+        if((rusu4.toLowerCase())=== resp4){
+            document.write(correct+ " " + resp4);
+        }else{
+            document.write(incorrect+ " " + resp4);
+        }
 
-    });
+        if((rusu5.toLowerCase())=== resp5){
+            document.write(correct+ " " + resp5);
+        }else{
+            document.write(incorrect + " " + resp5);
+        }
 
+        if((rusu6.toLowerCase())=== resp6){
+            document.write(correct+ " " + resp6);
+        }else{
+            document.write(incorrect + " " + resp6);
+        }*/
+        //}while((aciertos < 4) || (errores < 3));
+
+   // });
+
+    document.getElementById('marcador').innerHTML =
+    `<h3>Llevas ${marcador} puntos</h3>`
+    
 }
 
             
@@ -222,8 +279,8 @@ function crearCarta(p) {
 
     }
 
-    mostrarPreg(pregx);
-    validarRespuestas(respx);
+    let respUsuario = mostrarPreg(pregx);
+    validarRespuestas(respx, respUsuario);
 }
 
 // Preguntas y respuestas por categorías 
@@ -236,7 +293,7 @@ let geografia = () => {
             [` Nombre de los puntos cardinales (separados por comas y 
             en orden desde arriba, en sentido de las manecillas del reloj)`, "norte, este, sur, oeste"],
             [" Cuántos continentes hay en el mundo? (en número)", "6"],
-            [" Cuál es la montaña más alta del mundo? (con artículo el/la)", "el averest"],
+            [" Cuál es la montaña más alta del mundo? (con artículo el/la)", "el everest"],
             [" qué país tiene mayor número de habitantes en el mundo?", "china"],
             [" En qué país se encuentra el Taj Mahal? (con artículo)", "la india"],
             [" Cuántos países tiene África? 54, 37 o 61?", "54"],
@@ -316,5 +373,5 @@ do {
 
 // document.write(eleccionUsuario); // PRUEBAS
 
-comprobar(eleccionUsuario);
+categoria(eleccionUsuario);
 
