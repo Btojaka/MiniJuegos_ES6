@@ -49,43 +49,126 @@ let categoria = (e) => {
     }
 }
 // Va mostrando una por una las preguntas de la "carta" y el usuario va contestándolas
-let mostrarPreg = (quest) => {
+let mostrarPreg = (quest, answ) => {
     
-    /*let preg1 = quest[0][0];
+    // preguntas generadas aleatoriamente
+
+    let preg1 = quest[0][0];
     let preg2 = quest[1][0];
     let preg3 = quest[2][0];
     let preg4 = quest[3][0];
     let preg5 = quest[4][0];
-    let preg6 = quest[5][0];*/
+    let preg6 = quest[5][0];
+
+    //respuestas de las preguntas anteriores
+
+    let resp1 = answ[0][0];
+    let resp2 = answ[1][0];
+    let resp3 = answ[2][0];
+    let resp4 = answ[3][0];
+    let resp5 = answ[4][0];
+    let resp6 = answ[5][0];
+
+    // Muestra una a una, al usuario, las preguntas generadas. Y captura sus respuestas 
+
+    document.getElementById('f1').innerHTML =
+        `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+            <label for="respUsu1">1. ${preg1}</label><br><br>
+            <input type="text" id="respUsu1"><br><br>
+            
+			<input type="submit" value="Comprobar" id="submit">
+			
+            <br><br>`
+    
+    document.getElementById('f2').innerHTML =
+    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+        <label for="respUsu2">2. ${preg2}</label><br><br>
+        <input type="text" id="respUsu2"><br><br>
+        
+        <input type="submit" value="Comprobar" id="submit">
+        
+        <br><br>`
+
+    document.getElementById('f3').innerHTML =
+    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+        <label for="respUsu3">3. ${preg3}</label><br><br>
+        <input type="text" id="respUsu3"><br><br>
+        
+        <input type="submit" value="Comprobar" id="submit">
+        
+        <br><br>`
+
+    document.getElementById('f4').innerHTML =
+    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+        <label for="respUsu4">4. ${preg4}</label><br><br>
+        <input type="text" id="respUsu4"><br><br>
+        
+        <input type="submit" value="Comprobar" id="submit">
+        
+        <br><br>`
+    
+    document.getElementById('f5').innerHTML =
+    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+        <label for="respUsu5">5. ${preg5}</label><br><br>
+        <input type="text" id="respUsu5"><br><br>
+        
+        <input type="submit" value="Comprobar" id="submit">
+        
+        <br><br>`
+    
+    document.getElementById('f6').innerHTML =
+    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+        <label for="respUsu6">6. ${preg6}</label><br><br>
+        <input type="text" id="respUsu6"><br><br>
+        
+        <input type="submit" value="Comprobar" id="submit">
+        
+        <br><br>`
+
 
     // captura en cada variable la respuesta del usuario
+    let cartaSubmit = document.querySelector("#carta"); 
+    cartaSubmit.addEventListener('submit', function(){
 
-    let respUsu1 = prompt(quest[0][0]); 
-    let respUsu2 = prompt(quest[1][0]);
-    let respUsu3 = prompt(quest[2][0]);
-    let respUsu4 = prompt(quest[3][0]);
-    let respUsu5 = prompt(quest[4][0]);
-    let respUsu6 = prompt(quest[5][0]);
+        console.log("*****RESPUESTAS ENVIADAS****");
+        let rusu1 = document.querySelector("#respUsu1").value;
+        let rusu2 = document.querySelector("#respUsu2").value;
+        let rusu3 = document.querySelector("#respUsu3").value;
+        let rusu4 = document.querySelector("#respUsu4").value;
+        let rusu5 = document.querySelector("#respUsu5").value;
+        let rusu6 = document.querySelector("#respUsu6").value;
+
+        document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+        document.write("</br>"+"respuesta 1: " +rusu1+ "</br>");
+        document.write("respuesta 2: " +rusu2+ "</br>");
+        document.write("respuesta 3:" +rusu3+ "</br>");
+        document.write("respuesta 1: " +rusu4+ "</br>");
+        document.write("respuesta 2: " +rusu5+ "</br>");
+        document.write("respuesta 3:" +rusu6+ "</br>");
+        });
+    /*let respUsu1 = quest[0][0];
+    let respUsu2 = quest[1][0];
+    let respUsu3 = quest[2][0];
+    let respUsu4 = quest[3][0];
+    let respUsu5 = quest[4][0];
+    let respUsu6 = quest[5][0];
     let respUsu = [respUsu1, respUsu2, respUsu3, respUsu4, respUsu5, respUsu6];
 
-    return respUsu; 
+    return respUsu; */
 }   
 
 /* compara las respuestas del sistema con las respuestas introducidas por 
 el usuario para sumar puntos al marcador y saber cuando y cómo termina la partida */
 
-let validarRespuestas = (answ, respUsu) =>{
+/*let validarRespuestas = (answ, respUsu) =>{
      
-    //respuestas buenas
 
-    let resp = answ;
-    console.log(resp);
-    /*let resp1 = answ[0][0];
-    let resp2 = answ[1][0];
-    let resp3 = answ[2][0];
-    let resp4 = answ[3][0];
-    let resp5 = answ[4][0];
-    let resp6 = answ[5][0];*/
 
     // respuestas del usuario
     let rusu = respUsu;
@@ -97,42 +180,12 @@ let validarRespuestas = (answ, respUsu) =>{
     let aciertos = 0;
     let errores = 0;
     let aux;
-
-    for(let i=0; i<resp.length; i++){
-        aux = resp[i];
-        for(let j=0; j<rusu.length; j++){
-            if(aux == rusu[j]){
-                aciertos += 1;
-                marcador = aciertos;
-                alert(`Acertaste! Sigue así! 
-                <h3>MARCADOR: ${marcador}</h3>`);
-            }else{
-                errores += 1;
-                alert(`Fallaste, vuelve a intentarlo! 
-                <h3>MARCADOR: ${marcador}</h3>`);
-            }
-        }
-    }
-    /*rusu.forEach(function (element1, index) {
-        resp.forEach(function(element2, index){
-            if(element1 === element2){
-                aciertos += 1;
-                marcador = aciertos;
-                alert(`Acertaste! Sigue así! 
-                <h3>MARCADOR: ${marcador}</h3>`);
-            }else{
-                errores += 1;
-                alert(`Fallaste, vuelve a intentarlo!`);
-//<h3>MARCADOR: ${marcador}</h3>
-                }
-
-            });
-        
-    });*/
+     cabecera = ;
 
 
 
-    /*if(rusu[0].toLowerCase() === resp1){
+
+    /*if(rusu1.toLowerCase() === resp1){
         document.write(correct + " "+ resp1 );
         marcador = marcador + 1;
         aciertos = aciertos + 1;
@@ -163,7 +216,6 @@ let validarRespuestas = (answ, respUsu) =>{
     document.getElementById('marcador').innerHTML =
     `<h3>Llevas ${marcador} puntos</h3>`*/
     
-}
 
             
 
@@ -176,12 +228,11 @@ function crearCarta(p) {
     let indice;
     let pregx = [[], [], [], [], [], []];
     let respx = [[], [], [], [], [], []];
-    let aux = [[], [], [], [], [], [], [], [], [], []];
+    let aux = [[], [], [], [], [], [], [], [], [], []]; // matrix auxiliar para contenet 
 
     // Genera un número aleatorio entre 0 y el indice máximo de la matriz de las preguntas
     for (let i = 0; i < 6; i++) {
-
-        //indiceFila= indiceAleatorio(preg);
+    
         indice = Math.floor(Math.random() * (preg.length));
         console.log("Indice aleatorio: " + indice);
         aux[i][0] = preg[indice][0]; // las preguntas se encuentran en la columna 0 de cualquier fila
@@ -195,8 +246,9 @@ function crearCarta(p) {
 
     }
 
-    let respUsuario = mostrarPreg(pregx);
-    validarRespuestas(respx, respUsuario);
+    mostrarPreg(pregx, respx);
+    // let respUsuario = mostrarPreg(pregx);
+    //validarRespuestas(respx, respUsuario);
 }
 
 // Preguntas y respuestas por categorías 
