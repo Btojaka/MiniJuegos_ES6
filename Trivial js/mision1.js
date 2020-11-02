@@ -49,36 +49,37 @@ let categoria = (e) => {
     }
 }
 
-let valida = (repe, buenas) =>{
-    let cont = repe-1;
+let valida = (buenas) =>{
+    console.log("A valida() llega");
     let ok = true;
-    console.log("el contador en validar es: " + cont);
-    let resp = [];
-    resp [cont] = buenas[cont][0];
-    document.write(`</br>Las respuestas buenas en validar son: ${resp}<br>`);
+    let resp1 = buenas[0][0];
+    let resp2 = buenas[1][0];
+    let resp3 = buenas[2][0];
+    let resp4 = buenas[3][0];
+    let resp5 = buenas[4][0];
+    let resp6 = buenas[5][0];
 
     let marcador = 0;
     let aciertos = 0;
     let errores = 0;
-
-    
-    
 
     // captura en cada variable la respuesta del usuario
     let cartaSubmit = document.querySelector("#carta");
     cartaSubmit.addEventListener('submit', function(){
 
         console.log("*****RESPUESTAS ENVIADAS****");
-        let rusu = [];
-        rusu[cont] = document.querySelector("#respUsu").value;
-        //document.write(rusu);
+
+        let rusu1 = document.querySelector("#usu1").value;
+        let rusu2 = document.querySelector("#usu2").value;
+        let rusu3 = document.querySelector("#usu3").value;
+        let rusu4 = document.querySelector("#usu4").value;
+        let rusu5 = document.querySelector("#usu5").value;
+        let rusu6 = document.querySelector("#usu6").value;
 
         document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
-        document.write(`</br>Respuesta del ususario ${cont+1}: ${rusu[cont]}</br>`);
-        document.write(`</br>Respuesta del sistema ${cont+1}: ${resp[cont]}</br>`);
         
-
-        if(rusu[cont].toLowerCase() != resp[cont]){
+        
+        if(rusu1.toLowerCase() != resp1){
             ok = false;
             errores += 1;
             
@@ -86,15 +87,70 @@ let valida = (repe, buenas) =>{
         }else{
             aciertos = aciertos + 1;
             marcador = aciertos;
-            alert(`</br><h3>  MARCADOR: ${marcador}</h3>`);
+            alert(` MARCADOR: ${marcador}`);
+            
+        }
+        if(rusu2.toLowerCase() != resp2){
+            ok = false;
+            errores += 1;
+            
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(` MARCADOR: ${marcador}`);
+            
+        }
+        if(rusu3.toLowerCase() != resp3){
+            ok = false;
+            errores += 1;
+            
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(` MARCADOR: ${marcador}`);
             
         }
 
         if(ok== false){
             document.write(`<h4> has cometido ${errores} errores`);
-            alert(`</br><h3>  MARCADOR: ${marcador}</h3>`);
+            alert(` MARCADOR: ${marcador}`);
             return ok;
 
+        }
+        if(rusu4.toLowerCase() != resp4){
+            ok = false;
+            errores += 1;
+            
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(` MARCADOR: ${marcador}`);
+            
+        }
+        if(rusu5.toLowerCase() != resp5){
+            ok = false;
+            errores += 1;
+            
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(` MARCADOR: ${marcador}`);
+            
+        }
+        if(rusu6.toLowerCase() != resp6){
+            ok = false;
+            errores += 1;
+            
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(` MARCADOR: ${marcador}`);
+            
         }
 
     });
@@ -103,42 +159,44 @@ let valida = (repe, buenas) =>{
 }
 
 // Va mostrando una por una las preguntas generadas aleatoriamente (quest) de la "carta" y el usuario va contestándolas
-let mostrarPreg = (quest, answ) => {
-    console.log("A mostrarPreg() llega"); // PRUEBA 
+let mostrarPreg = (quest) => {
+    console.log("A mostrarPreg() llega"); // PRUEBA
+
+    let preg1 = quest[0][0];
+    let preg2 = quest[1][0];
+    let preg3 = quest[2][0];
+    let preg4 = quest[3][0];
+    let preg5 = quest[4][0];
+    let preg6 = quest[5][0];
     
-    let cont = 0; // crea variable contador
+    console.log("A mostrar() llega"); //PRUEBA
+    //console.log(preg); PRUEBAS
 
-    let preg = [];
-    let respBuenas = answ;
+    document.getElementById("formulario").innerHTML =
+        `<form action="#" method= "POST" id="carta" onsubmit='return valida(this)' >
 
+            <label for="usu1">1. ${preg1}</label><br><br>
+            <input type="text" id="usu1"><br><br>
 
-    
-    let mostrar = (aux) =>{
-            let repe = aux+1;
-            preg = quest[repe-1][0]; 
-            console.log("A mostrar() llega"); //PRUEBA
-            //console.log(preg); PRUEBAS
+            <label for="usu2">2. ${preg2}</label><br><br>
+            <input type="text" id="usu2"><br><br>
 
-            document.write(`${"La repe es: " +repe} <br> `); //PRUEBAS
-            document.getElementById(`pregunta`).innerHTML =
-                `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+            <label for="usu3">3. ${preg3}</label><br><br>
+            <input type="text" id="usu3"><br><br>
 
-                    <label for="respUsu">${preg}</label><br><br>
-                    <input type="text" id="respUsu"><br><br>
-                    
-                    <input type="submit" value="Comprobar" id="submit">
-                    
-                    <br><br>`
-            return [repe, respBuenas];
+            <label for="usu4">4. ${preg4}</label><br><br>
+            <input type="text" id="usu4"><br><br>
 
-    }
-    // lo repetirá 6 veces para mostrar las 6 preguntas y capturar y comprobar las 6 respuestas
-    do{
-        let [contador, respuestas] = mostrar(cont);
-        valida(contador, respuestas);
-        cont++;
-    }while(cont <6);
-    
+            <label for="usu5">5. ${preg5}</label><br><br>
+            <input type="text" id="usu5"><br><br>
+
+            <label for="usu6">6. ${preg6}</label><br><br>
+            <input type="text" id="usu6"><br><br>
+
+            <input type="submit" value="Comprobar" id="submit"></input>
+
+            <br><br>`
+
 }
 
 
@@ -150,7 +208,7 @@ function crearCarta(p) {
     let indice;
     let pregx = [[], [], [], [], [], []];
     let respx = [[], [], [], [], [], []];
-    let aux = [[], [], [], [], [], [], [], [], [], []]; // matrix auxiliar para contenet 
+    let aux = [[], [], [], [], [], [], [], [], [], []]; // matriz auxiliar
 
     // Genera un número aleatorio entre 0 y el indice máximo de la matriz de las preguntas
     for (let i = 0; i < 6; i++) {
@@ -168,9 +226,8 @@ function crearCarta(p) {
 
     }
 
-    mostrarPreg(pregx, respx);
-    // let respUsuario = mostrarPreg(pregx);
-    //validarRespuestas(respx, respUsuario);
+    mostrarPreg(pregx);
+    //valida(respx);
 }
 
 // Preguntas y respuestas por categorías 
