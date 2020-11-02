@@ -51,13 +51,16 @@ let categoria = (e) => {
 
 let valida = (buenas) =>{
     console.log("A valida() llega");
-    let ok = true;
-    let resp1 = buenas[0][0];
+    
+    let resp = [];
+    resp = buenas;
+    /*let resp1 = buenas[0][0];
     let resp2 = buenas[1][0];
     let resp3 = buenas[2][0];
     let resp4 = buenas[3][0];
     let resp5 = buenas[4][0];
-    let resp6 = buenas[5][0];
+    let resp6 = buenas[5][0];*/
+
 
     let marcador = 0;
     let aciertos = 0;
@@ -75,84 +78,21 @@ let valida = (buenas) =>{
         let rusu4 = document.querySelector("#usu4").value;
         let rusu5 = document.querySelector("#usu5").value;
         let rusu6 = document.querySelector("#usu6").value;
+        let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
 
-        document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
         
-        
-        if(rusu1.toLowerCase() != resp1){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
+        let ok = true;
+        for(let i= 0; i<rusu.length; i++){
+            document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+            if(rusu[i].toLowerCase() != resp[i]){
+                ok = false;
+                errores += 1;
+            }else{
+                aciertos = aciertos + 1;
+                marcador = aciertos;
+            }
             alert(` MARCADOR: ${marcador}`);
-            
         }
-        if(rusu2.toLowerCase() != resp2){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
-            alert(` MARCADOR: ${marcador}`);
-            
-        }
-        if(rusu3.toLowerCase() != resp3){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
-            alert(` MARCADOR: ${marcador}`);
-            
-        }
-
-        if(ok== false){
-            document.write(`<h4> has cometido ${errores} errores`);
-            alert(` MARCADOR: ${marcador}`);
-            return ok;
-
-        }
-        if(rusu4.toLowerCase() != resp4){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
-            alert(` MARCADOR: ${marcador}`);
-            
-        }
-        if(rusu5.toLowerCase() != resp5){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
-            alert(` MARCADOR: ${marcador}`);
-            
-        }
-        if(rusu6.toLowerCase() != resp6){
-            ok = false;
-            errores += 1;
-            
-            
-        }else{
-            aciertos = aciertos + 1;
-            marcador = aciertos;
-            alert(` MARCADOR: ${marcador}`);
-            
-        }
-
     });
     
 
@@ -173,7 +113,7 @@ let mostrarPreg = (quest) => {
     //console.log(preg); PRUEBAS
 
     document.getElementById("formulario").innerHTML =
-        `<form action="#" method= "POST" id="carta" onsubmit='return valida(this)' >
+        `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
 
             <label for="usu1">1. ${preg1}</label><br><br>
             <input type="text" id="usu1"><br><br>
@@ -227,7 +167,7 @@ function crearCarta(p) {
     }
 
     mostrarPreg(pregx);
-    //valida(respx);
+    valida(respx);
 }
 
 // Preguntas y respuestas por categorías 

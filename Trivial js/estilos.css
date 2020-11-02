@@ -1,0 +1,22 @@
+body {
+    background: rgb(45, 89, 129);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+    text-align: center;
+    text-decoration: underline;
+    background-color: rgb(138, 199, 176);
+    width: 500px ;
+    padding:40px;
+}
+
+#caja {
+    padding: 40px 20px;
+    text-align: center;
+    margin: 10px 0;
+    background: #000;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #fff;
+}
