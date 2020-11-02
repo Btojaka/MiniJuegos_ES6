@@ -50,95 +50,81 @@ let categoria = (e) => {
 }
 // Va mostrando una por una las preguntas de la "carta" y el usuario va contestándolas
 let mostrarPreg = (quest, answ) => {
-    
+    console.log("aqui si que llega)");
     // preguntas generadas aleatoriamente
+    let cont = 0; // crea variable contador
+    let preg = [];
+    preg = quest[cont][0]; 
+    console.log(preg);
+    
 
-    let preg1 = quest[0][0];
+
+    /*let preg1 = quest[0][0];
     let preg2 = quest[1][0];
     let preg3 = quest[2][0];
     let preg4 = quest[3][0];
     let preg5 = quest[4][0];
-    let preg6 = quest[5][0];
+    let preg6 = quest[5][0];*/
 
     //respuestas de las preguntas anteriores
 
-    let resp1 = answ[0][0];
+    /*let resp1 = answ[0][0];
     let resp2 = answ[1][0];
     let resp3 = answ[2][0];
     let resp4 = answ[3][0];
     let resp5 = answ[4][0];
-    let resp6 = answ[5][0];
+    let resp6 = answ[5][0];*/
 
-    // Muestra una a una, al usuario, las preguntas generadas. Y captura sus respuestas 
+    // lo repetirá 6 veces para mostrar las 6 preguntas y capturar y comprobar las 6 respuestas
+    while(cont = 6) {
+        cont++;
+        document.write(`${cont} <br> `);
+        document.getElementById(`${cont}`).innerHTML =
+            `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
 
-    document.getElementById('f1').innerHTML =
-        `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+                <label for="respUsu">1. ${preg}</label><br><br>
+                <input type="text" id="respUsu"><br><br>
+                
+                <input type="submit" value="Comprobar" id="submit">
+                
+                <br><br>`
 
-            <label for="respUsu1">1. ${preg1}</label><br><br>
-            <input type="text" id="respUsu1"><br><br>
+        // captura en cada variable la respuesta del usuario
+        let cartaSubmit = document.querySelector("#carta");
+        cartaSubmit.addEventListener('submit', function(){
+
+            console.log("*****RESPUESTAS ENVIADAS****");
+            let rusu = [];
+            rusu[cont-1] = document.querySelector("#respUsu").value;
+
+            document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+            document.write(`</br>Respuesta ${cont}: ${rusu[cont-1]}</br>`);
+        });
+
+
+        if(rusu1.toLowerCase() === resp1){
+            document.write(correct + " "+ resp1 );
+            marcador = marcador + 1;
+            aciertos = aciertos + 1;
+            //document.write("tus aciertos son = " + aciertos);
+            //document.write(`<h3>MARCADOR: ${marcador}</h3>`);
             
-			<input type="submit" value="Comprobar" id="submit">
-			
-            <br><br>`
-    
-    document.getElementById('f2').innerHTML =
-    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+        }else{
+            document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
+            errores += 1;
+            //document.write(`<h4> has cometido ${errores} errores`);
+        }
 
-        <label for="respUsu2">2. ${preg2}</label><br><br>
-        <input type="text" id="respUsu2"><br><br>
-        
-        <input type="submit" value="Comprobar" id="submit">
-        
-        <br><br>`
 
-    document.getElementById('f3').innerHTML =
-    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
-
-        <label for="respUsu3">3. ${preg3}</label><br><br>
-        <input type="text" id="respUsu3"><br><br>
-        
-        <input type="submit" value="Comprobar" id="submit">
-        
-        <br><br>`
-
-    document.getElementById('f4').innerHTML =
-    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
-
-        <label for="respUsu4">4. ${preg4}</label><br><br>
-        <input type="text" id="respUsu4"><br><br>
-        
-        <input type="submit" value="Comprobar" id="submit">
-        
-        <br><br>`
-    
-    document.getElementById('f5').innerHTML =
-    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
-
-        <label for="respUsu5">5. ${preg5}</label><br><br>
-        <input type="text" id="respUsu5"><br><br>
-        
-        <input type="submit" value="Comprobar" id="submit">
-        
-        <br><br>`
-    
-    document.getElementById('f6').innerHTML =
-    `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
-
-        <label for="respUsu6">6. ${preg6}</label><br><br>
-        <input type="text" id="respUsu6"><br><br>
-        
-        <input type="submit" value="Comprobar" id="submit">
-        
-        <br><br>`
-
+    }
 
     // captura en cada variable la respuesta del usuario
-    let cartaSubmit = document.querySelector("#carta"); 
+    /*let cartaSubmit = document.querySelector("#carta"); 
     cartaSubmit.addEventListener('submit', function(){
 
         console.log("*****RESPUESTAS ENVIADAS****");
         let rusu1 = document.querySelector("#respUsu1").value;
-        let rusu2 = document.querySelector("#respUsu2").value;
+        /*let rusu2 = document.querySelector("#respUsu2").value;
         let rusu3 = document.querySelector("#respUsu3").value;
         let rusu4 = document.querySelector("#respUsu4").value;
         let rusu5 = document.querySelector("#respUsu5").value;
@@ -151,7 +137,7 @@ let mostrarPreg = (quest, answ) => {
         document.write("respuesta 1: " +rusu4+ "</br>");
         document.write("respuesta 2: " +rusu5+ "</br>");
         document.write("respuesta 3:" +rusu6+ "</br>");
-        });
+        });*/
     /*let respUsu1 = quest[0][0];
     let respUsu2 = quest[1][0];
     let respUsu3 = quest[2][0];
