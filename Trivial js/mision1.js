@@ -62,7 +62,6 @@ let valida = (buenas) =>{
     let resp6 = buenas[5][0];*/
 
 
-    let marcador = 0;
     let aciertos = 0;
     let errores = 0;
 
@@ -81,18 +80,25 @@ let valida = (buenas) =>{
         let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
 
         
-        let ok = true;
+        // let ok = true;
         for(let i= 0; i<rusu.length; i++){
             document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+            document.write("usuario: " +rusu[1]);
+            document.write("Buena: "+resp[1]);
+            
+            
+
             if(rusu[i].toLowerCase() != resp[i]){
-                ok = false;
+               // ok = false;
                 errores += 1;
             }else{
                 aciertos = aciertos + 1;
-                marcador = aciertos;
             }
-            alert(` MARCADOR: ${marcador}`);
+            
         }
+        document.getElementById("marca").innerHTML = 
+            `<h3>MARCADOR: ${aciertos}</h3>`;
+            
     });
     
 
@@ -133,9 +139,11 @@ let mostrarPreg = (quest) => {
             <label for="usu6">6. ${preg6}</label><br><br>
             <input type="text" id="usu6"><br><br>
 
+            <p id="mensError"></p>
+
             <input type="submit" value="Comprobar" id="submit"></input>
 
-            <br><br>`
+            <br><br>`;
 
 }
 

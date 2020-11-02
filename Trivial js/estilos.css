@@ -5,18 +5,39 @@ body {
 
 .contenedor {
     text-align: center;
-    text-decoration: underline;
     background-color: rgb(138, 199, 176);
     width: 500px ;
     padding:40px;
 }
 
+.grande{
+    text-decoration-line: dotted;
+    font-style: normal;
+}
+.pequeño{
+    
+    background-color: rgb(160, 55, 116);
+    padding: 40px 40px;
+    margin: 10px 0px;
+}
+
 #caja {
-    padding: 40px 20px;
+    float: none;
     text-align: center;
+    padding: 40px 40px;
     margin: 10px 0;
-    background: #000;
+    background: rgb(95, 8, 66);
     font-size: 24px;
     font-weight: bolder;
     color: #fff;
+}
+
+#marcador{
+    float: right;
+    background-color: rgb(2, 1, 1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    width: 200px;
+    color: #fff;
+
 }
