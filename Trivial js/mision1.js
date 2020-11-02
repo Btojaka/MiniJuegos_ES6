@@ -48,162 +48,98 @@ let categoria = (e) => {
             alert("estás en el default, algo falló")
     }
 }
-// Va mostrando una por una las preguntas de la "carta" y el usuario va contestándolas
-let mostrarPreg = (quest, answ) => {
-    console.log("aqui si que llega)");
-    // preguntas generadas aleatoriamente
-    let cont = 0; // crea variable contador
-    let preg = [];
-    preg = quest[cont][0]; 
-    console.log(preg);
-    
 
-
-    /*let preg1 = quest[0][0];
-    let preg2 = quest[1][0];
-    let preg3 = quest[2][0];
-    let preg4 = quest[3][0];
-    let preg5 = quest[4][0];
-    let preg6 = quest[5][0];*/
-
-    //respuestas de las preguntas anteriores
-
-    /*let resp1 = answ[0][0];
-    let resp2 = answ[1][0];
-    let resp3 = answ[2][0];
-    let resp4 = answ[3][0];
-    let resp5 = answ[4][0];
-    let resp6 = answ[5][0];*/
-
-    // lo repetirá 6 veces para mostrar las 6 preguntas y capturar y comprobar las 6 respuestas
-    while(cont = 6) {
-        cont++;
-        document.write(`${cont} <br> `);
-        document.getElementById(`${cont}`).innerHTML =
-            `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
-
-                <label for="respUsu">1. ${preg}</label><br><br>
-                <input type="text" id="respUsu"><br><br>
-                
-                <input type="submit" value="Comprobar" id="submit">
-                
-                <br><br>`
-
-        // captura en cada variable la respuesta del usuario
-        let cartaSubmit = document.querySelector("#carta");
-        cartaSubmit.addEventListener('submit', function(){
-
-            console.log("*****RESPUESTAS ENVIADAS****");
-            let rusu = [];
-            rusu[cont-1] = document.querySelector("#respUsu").value;
-
-            document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
-            document.write(`</br>Respuesta ${cont}: ${rusu[cont-1]}</br>`);
-        });
-
-
-        if(rusu1.toLowerCase() === resp1){
-            document.write(correct + " "+ resp1 );
-            marcador = marcador + 1;
-            aciertos = aciertos + 1;
-            //document.write("tus aciertos son = " + aciertos);
-            //document.write(`<h3>MARCADOR: ${marcador}</h3>`);
-            
-        }else{
-            document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
-            errores += 1;
-            //document.write(`<h4> has cometido ${errores} errores`);
-        }
-
-
-    }
-
-    // captura en cada variable la respuesta del usuario
-    /*let cartaSubmit = document.querySelector("#carta"); 
-    cartaSubmit.addEventListener('submit', function(){
-
-        console.log("*****RESPUESTAS ENVIADAS****");
-        let rusu1 = document.querySelector("#respUsu1").value;
-        /*let rusu2 = document.querySelector("#respUsu2").value;
-        let rusu3 = document.querySelector("#respUsu3").value;
-        let rusu4 = document.querySelector("#respUsu4").value;
-        let rusu5 = document.querySelector("#respUsu5").value;
-        let rusu6 = document.querySelector("#respUsu6").value;
-
-        document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
-        document.write("</br>"+"respuesta 1: " +rusu1+ "</br>");
-        document.write("respuesta 2: " +rusu2+ "</br>");
-        document.write("respuesta 3:" +rusu3+ "</br>");
-        document.write("respuesta 1: " +rusu4+ "</br>");
-        document.write("respuesta 2: " +rusu5+ "</br>");
-        document.write("respuesta 3:" +rusu6+ "</br>");
-        });*/
-    /*let respUsu1 = quest[0][0];
-    let respUsu2 = quest[1][0];
-    let respUsu3 = quest[2][0];
-    let respUsu4 = quest[3][0];
-    let respUsu5 = quest[4][0];
-    let respUsu6 = quest[5][0];
-    let respUsu = [respUsu1, respUsu2, respUsu3, respUsu4, respUsu5, respUsu6];
-
-    return respUsu; */
-}   
-
-/* compara las respuestas del sistema con las respuestas introducidas por 
-el usuario para sumar puntos al marcador y saber cuando y cómo termina la partida */
-
-/*let validarRespuestas = (answ, respUsu) =>{
-     
-
-
-    // respuestas del usuario
-    let rusu = respUsu;
-    console.log(rusu);
-    //let rusu1 = respUsu[0];
-   // let rusu2 = respUsu[1];
+let valida = (repe, buenas) =>{
+    let cont = repe-1;
+    let ok = true;
+    console.log("el contador en validar es: " + cont);
+    let resp = [];
+    resp [cont] = buenas[cont][0];
+    document.write(`</br>Las respuestas buenas en validar son: ${resp}<br>`);
 
     let marcador = 0;
     let aciertos = 0;
     let errores = 0;
-    let aux;
-     cabecera = ;
 
-
-
-
-    /*if(rusu1.toLowerCase() === resp1){
-        document.write(correct + " "+ resp1 );
-        marcador = marcador + 1;
-        aciertos = aciertos + 1;
-        //document.write("tus aciertos son = " + aciertos);
-        //document.write(`<h3>MARCADOR: ${marcador}</h3>`);
-        
-    }else{
-        document.write(incorrect + resp1+ " **tu respuesta fue: " + rusu1);
-        errores += 1;
-        //document.write(`<h4> has cometido ${errores} errores`);
-    }
-
-    if(rusu2.toLowerCase() === resp2){
-        document.write(correct + " "+ resp2 );
-        marcador = marcador + 1;
-        aciertos = aciertos + 1;
-        //document.write("tus aciertos son = " + aciertos);
-        
-        
-    }else{
-        document.write(incorrect + resp2+ " **tu respuesta fue: " + rusu2);
-        errores += 1;
-        document.write(`<h4> has cometido ${errores} errores`);
-    }
-    document.write(`<h3>MARCADOR: ${marcador}</h3>`);
-    document.write(`<h4> has cometido ${errores} errores`);
-
-    document.getElementById('marcador').innerHTML =
-    `<h3>Llevas ${marcador} puntos</h3>`*/
+    
     
 
+    // captura en cada variable la respuesta del usuario
+    let cartaSubmit = document.querySelector("#carta");
+    cartaSubmit.addEventListener('submit', function(){
+
+        console.log("*****RESPUESTAS ENVIADAS****");
+        let rusu = [];
+        rusu[cont] = document.querySelector("#respUsu").value;
+        //document.write(rusu);
+
+        document.write("***COMPROBACIÓN DE LAS RESPUESTAS***");
+        document.write(`</br>Respuesta del ususario ${cont+1}: ${rusu[cont]}</br>`);
+        document.write(`</br>Respuesta del sistema ${cont+1}: ${resp[cont]}</br>`);
+        
+
+        if(rusu[cont].toLowerCase() != resp[cont]){
+            ok = false;
+            errores += 1;
             
+            
+        }else{
+            aciertos = aciertos + 1;
+            marcador = aciertos;
+            alert(`</br><h3>  MARCADOR: ${marcador}</h3>`);
+            
+        }
+
+        if(ok== false){
+            document.write(`<h4> has cometido ${errores} errores`);
+            alert(`</br><h3>  MARCADOR: ${marcador}</h3>`);
+            return ok;
+
+        }
+
+    });
+    
+
+}
+
+// Va mostrando una por una las preguntas generadas aleatoriamente (quest) de la "carta" y el usuario va contestándolas
+let mostrarPreg = (quest, answ) => {
+    console.log("A mostrarPreg() llega"); // PRUEBA 
+    
+    let cont = 0; // crea variable contador
+
+    let preg = [];
+    let respBuenas = answ;
+
+
+    
+    let mostrar = (aux) =>{
+            let repe = aux+1;
+            preg = quest[repe-1][0]; 
+            console.log("A mostrar() llega"); //PRUEBA
+            //console.log(preg); PRUEBAS
+
+            document.write(`${"La repe es: " +repe} <br> `); //PRUEBAS
+            document.getElementById(`pregunta`).innerHTML =
+                `<form action="#" method= "POST" id="carta" onsubmit='return false;' >
+
+                    <label for="respUsu">${preg}</label><br><br>
+                    <input type="text" id="respUsu"><br><br>
+                    
+                    <input type="submit" value="Comprobar" id="submit">
+                    
+                    <br><br>`
+            return [repe, respBuenas];
+
+    }
+    // lo repetirá 6 veces para mostrar las 6 preguntas y capturar y comprobar las 6 respuestas
+    do{
+        let [contador, respuestas] = mostrar(cont);
+        valida(contador, respuestas);
+        cont++;
+    }while(cont <6);
+    
+}
 
 
 
