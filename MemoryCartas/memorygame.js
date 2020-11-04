@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cartaElegida = [];
     let cartaElegidaId = [];
-    const cartaGana = [];
+    const cartasGanadas = [];
 
     // temporizador
     let tempo = 0;
@@ -100,12 +100,28 @@ document.addEventListener("DOMContentLoaded", () => {
         carta.setAttribute("src", "./images/colors.svg");
         carta.setAttribute("data-id", i);
         carta.classList.add("mystyle");
-        carta.addEventListener("click", vueltaCarta);
+        carta.addEventListener("click", girarCarta);
         cuadricula.appendChild(carta);
         }
     }
 
     
 
+    // Con esta función se gira la carta
+    function girarCarta() {
+        let cartasElegidas = [];
+        let cartaId = this.getAttribute("data-id");
+        cartaElegida.push(arrayCartas[cartaId].name);
+        cartaElegidaId.push(cardId);
+        this.setAttribute("src", arrayCartas[cartaId].img);
+        contador++;
+        document.querySelector("#contador").textContent = contador;
+        if (cartasElegidas.length === 2) {
+        setTimeout(coincidencia, 500);
+        }
+    }
+
     crearTablero();
+
+
 });
