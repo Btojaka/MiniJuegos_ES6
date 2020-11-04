@@ -94,7 +94,7 @@ h4 {
     display: block;
 }
 
-#resultado, #contador, #temporizador {
+#resultado, #contador, #tempo {
     color: violet;
 }
 
@@ -108,4 +108,14 @@ h4 {
     height: 470px;
     width: 500px;
     margin: auto;
+}
+
+/* Estilo de las tarjetas */
+.mystyle {
+    box-shadow:  5px 5px #ccc;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5rem;
+    width: 90px;
+    height: 90px;
 }

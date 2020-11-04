@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Se obtiene el modo
+    // Obtiene el modo
     let modal = document.getElementById("miModo");
     
     // Cuando el ususario clica en cualquier sitio fuera, se cierra.
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    //Opciones de las cartas
+    // Opciones de las cartas
     const wizard = {
         name: "wizard",
         img: "./images/1wizard.svg"
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Array de las imagenes para las cartas 
-    const cardArray = [
+    const arrayCartas = [
         wizard,
         dwarf,
         elf,
@@ -65,14 +65,47 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     //array PRUEBAS 
-    //const cardArray = [wizard, dwarf, wizard, dwarf];
+    //const arrayCartas = [wizard, dwarf, wizard, dwarf];
 
     // Función que ordena las cartas aleatoriamente
     function ordenaCartas() {
-        cardArray.sort(() => 0.5 - Math.random());
+        arrayCartas.sort(() => 0.5 - Math.random());
     }
 
     ordenaCartas();
 
+    const cuadricula = document.querySelector(".cuadricula");
+    const verResultado = document.querySelector("#resultado");
+
+    let cartaElegida = [];
+    let cartaElegidaId = [];
+    const cartaGana = [];
+
+    // temporizador
+    let tempo = 0;
+    setInterval(() => {
+        tempo++;
+        console.log(tempo);
+        document.querySelector("#tempo").textContent = tempo;
+    }, 1000);
+
+    // contador
+    let contador = 0;
+    document.querySelector("#contador").textContent = contador;
+
+    // Cear tablero
+    function crearTablero() {
+        for (let i = 0; i < arrayCartas.length; i++) {
+        let carta = document.createElement("img");
+        carta.setAttribute("src", "./images/colors.svg");
+        carta.setAttribute("data-id", i);
+        carta.classList.add("mystyle");
+        carta.addEventListener("click", vueltaCarta);
+        cuadricula.appendChild(carta);
+        }
+    }
+
     
+
+    crearTablero();
 });
