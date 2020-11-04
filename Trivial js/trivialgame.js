@@ -1,13 +1,13 @@
 
 'use strict';
 // FUNCIONES
-
+document.addEventListener("DOMContentLoaded", () => {
 /* Muestra por pantalla un mensaje al usuario para que elija la categoría que quiera
    en la última tirada. Guarda la elección del usuario en una variable y la devuelve.*/
 
 let elegir = () =>
     prompt(`Elige la categoría de tu carta 1 = Geografía, 2 = Arte, 
-    3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 3);
+    3 = Espectáculos, 4 = Historia, 5 = Ciencias o 6 = Deporte.`, 1);
 
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
 let categoria = (e) => {
@@ -96,7 +96,7 @@ let valida = (buenas) =>{
             }
             
         }
-        document.getElementById("marca").innerHTML = 
+        document.getElementById("resultado").innerHTML = 
             `<h3>MARCADOR: ${aciertos}</h3>`;
             
     });
@@ -270,3 +270,4 @@ do {
 
 categoria(eleccionUsuario);
 
+});
