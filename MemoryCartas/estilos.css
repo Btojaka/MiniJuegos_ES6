@@ -1,0 +1,111 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Paytone One', sans-serif;
+    /*overflow: hidden;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* The Modal (background) */
+.modelo {
+
+    display: block; 
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: violet; /* Fallback color */
+    background-color: rgba(228, 169, 210, 0.3); /* pink with opacity */
+    transition: all ease-in 1s;
+}
+#alerta {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+  /* Modal Content/Box */
+.contenido {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid purple;
+    border-radius: 0.5rem;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.contenido p {
+    text-align: center;
+    color: purple;
+    font-size: 1.5vw;
+}
+
+#miboton {
+    padding: 0.5rem;
+    font-weight: 400;
+    color: purple;
+    background: white;
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    position: relative;
+    /* center the button */
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all ease 2s;
+}
+
+#miboton:hover {
+    background-color: purple;
+    color: white;
+    font-weight: 400;
+}
+
+
+/* contador, temporizador y resultado */
+.extras {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 80vw;
+}
+
+h1 {
+    font-size: 30px;
+    color:slateblue;
+    text-align: center;
+    margin: 2px;
+}
+
+h3, #resultado  {
+    font-size: 25px;
+    font-weight: 400px;
+    margin: 2px;
+}
+
+h4 {
+    font-size: 20px;
+    display: block;
+}
+
+#resultado, #contador, #temporizador {
+    color: violet;
+}
+
+
+/* Espacio para las tarjetas */
+.cuadricula {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 470px;
+    width: 500px;
+    margin: auto;
+}
