@@ -167,6 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     crearTablero();
 
+    document.getElementById("miboton").addEventListener("click", () => {
+        window.location.reload()
+    })
+
 });
 
 
