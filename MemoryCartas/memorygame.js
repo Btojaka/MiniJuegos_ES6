@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    // Obtiene el modo
-    let modal = document.getElementById("miModo");
+    // Get the modal
+    let modo = document.getElementById("miModo");
     
-    // Cuando el ususario clica en cualquier sitio fuera, se cierra.
-    window.onclick = function(e) {
-        if (e.target == modal) {
-        modal.style.display = "none";
+      // Cuando el usuario clica fuera del cuadro de dialogo, éste desaparece
+      window.onclick = function (elemento) {
+        if (elemento.target == modo) {
+          modo.style.display = "none";
         }
-    };
+        };
 
     // Opciones de las cartas
     const wizard = {
@@ -77,8 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const cuadricula = document.querySelector(".cuadricula");
     const verResultado = document.querySelector("#resultado");
 
-    let cartaElegida = [];
-    let cartaElegidaId = [];
+    let cartasElegidas = [];
+    let cartasElegidasId = [];
     const cartasGanadas = [];
 
     // temporizador
@@ -93,25 +92,71 @@ document.addEventListener("DOMContentLoaded", () => {
     let contador = 0;
     document.querySelector("#contador").textContent = contador;
 
-    // Cear tablero
+    // Cear el tablero con las cartas aleatorias
     function crearTablero() {
         for (let i = 0; i < arrayCartas.length; i++) {
-        let carta = document.createElement("img");
-        carta.setAttribute("src", "./images/colors.svg");
-        carta.setAttribute("data-id", i);
-        carta.classList.add("miestilo");
-        carta.addEventListener("click", girarCarta);
-        cuadricula.appendChild(carta);
+            let carta = document.createElement("img");
+            carta.setAttribute("src", "./images/colors.svg");
+            carta.setAttribute("data-id", i); // QUE ES ESTO, NO ME ACUERDO
+            carta.classList.add("miestilo");
+            carta.addEventListener("click", girarCarta);
+            cuadricula.appendChild(carta);
         }
     }
+    // Comprueba si coinciden las cartas que el usuario ha dado la vuelta 
+    function coincidencia() {
+        let cartas = document.querySelectorAll("img");
+        const opcion1 = cartasElegidasId[0];
+        const opcion2 = cartasElegidasId[1];
+        let carta1 = cartas[opcion1];
+        let carta2 = cartas[opcion2];
 
+        // Si clicas 2 veces seguidas en la misma carta
+        if (carta1 == carta2) {
+            carta1.setAttribute("src", "./images/colors.svg"); // pone imagen del reverso como si hubiera girado
+            carta2.setAttribute("src", "./images/colors.svg");
+            carta1.classList.add("miestilo"); // aplica estilos 
+            carta2.classList.add("miestilo");
+            alert("Has elegido la misma carta!");
+        // Si las dos cartas elegidas son iguales
+        } else if (cartasElegidas[0] === cartasElegidas[1]) {
+
+            carta1.setAttribute("src", "./images/white.svg"); // cambia a blanco (como si hubiera desaparecido)
+            carta2.setAttribute("src", "./images/white.svg");
+            carta1.removeEventListener("click", girarCarta); // Deja de dar la opción de girar la carta
+            carta2.removeEventListener("click", girarCarta);
+            carta1.classList.add("miestilo"); // aplica estilos
+            carta2.classList.add("miestilo");
+            carta1.style.border = "3px solid black"
+            carta2.style.border = "3px solid black"
+            cartasGanadas.push(cartasElegidas);
+        // Si las dos cartas elegidas son diferentes
+        } else {
+            setTimeout(() => {
+
+                carta1.setAttribute("src", "./images/colors.svg"); 
+                carta2.setAttribute("src", "./images/colors.svg");
+                carta1.classList.add("miestilo");
+                carta2.classList.add("miestilo");
+            }, 500);
+        }
+
+        cartasElegidas = [];
+        cartasElegidasId = [];
+
+        verResultado.textContent = cartasGanadas.length;
+        if (cartasGanadas.length === arrayCartas.length / 2) {
+            //alert shows up
+            document.getElementById("alerta").style.display = "block"
+        }
+    }
     
     // Con esta función se gira la carta
     function girarCarta() {
-        let cartasElegidas = [];
+        
         let cartaId = this.getAttribute("data-id");
-        cartaElegida.push(arrayCartas[cartaId].name);
-        cartaElegidaId.push(cartaId);
+        cartasElegidas.push(arrayCartas[cartaId].name);
+        cartasElegidasId.push(cartaId);
         this.setAttribute("src", arrayCartas[cartaId].img);
         contador++;
         document.querySelector("#contador").textContent = contador;
@@ -121,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     crearTablero();
-
 
 });
 
