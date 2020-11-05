@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         verResultado.textContent = cartasGanadas.length;
         if (cartasGanadas.length === arrayCartas.length / 2) {
-            //alert shows up
+            //la alerta aparece
             document.getElementById("alerta").style.display = "block"
         }
     }

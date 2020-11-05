@@ -9,38 +9,46 @@ let elegir = () =>
 
 // Ejecutará las instrucciones según la elección del usuario, se le pasa el parámetro e
 let categoria = (elec) => {
-    let eleccion = parseInt(elec); // 
-    //document.write("Esta es la eleccion dentro de la funcion categoria: " + eleccion); // PRUEBAS
+    let eleccion = parseInt(elec);
+    let cat; // preguntas aleatorias categoría
+    let answ; // respuestas aleatorias categorí
+
     switch (eleccion) {
         case 1:
             alert("Has elegido Geografía");
-            let geo = geografia;
-            crearCarta(geo);
+            cat = geografia;
+            answ = crearCarta(cat);
+            validaResp(answ);
             break;
         case 2:
             alert("Has elegido Arte");
-            let art = arte;
-            crearCarta(art);
+            cat = arte;
+            answ =crearCarta(cat);
+            validaResp(answ);
             break;
         case 3:
             alert("Has elegido Espectáculos");
-            let esp = espectaculos;
-            crearCarta(esp);
+            cat = espectaculos;
+            answ = crearCarta(cat);
+            validaResp(answ);
             break;
         case 4:
             alert("Has elegido Historia");
-            let his = historia;
-            crearCarta(his);
+            cat = historia;
+            answ = crearCarta(cat);
+            validaResp(answ);
             break;
         case 5:
             alert("Has elegido Ciencias");
             let cie = ciencia;
-            crearCarta(cie);
+            answ = crearCarta(cie);
+            validaResp(answ);
             break;
         case 6:
             alert("Has elegido Deporte");
             let dep = deporte;
-            crearCarta(dep);
+            answ = crearCarta(dep);
+            validaResp(answ);
             break;
         default:
             alert("estás en el default, algo falló")
@@ -307,11 +315,13 @@ const deporte = [
     }
 ];
 
+const verResultado = document.querySelector("#resultado");
+
 // Función que crea el formulario según la categoría elegida por el usuario en HTML y lo muestra por pantalla cuando se le invoque
 let crearCarta = (cat) => {
-    let pHTML = cat
+    let pHTML = cat;
     console.log(pHTML.length);
-    // console.log(pHTML[5].pregunta); // PRUEBAS
+    console.log("pHTML: " +(pHTML.pregunta)); // PRUEBAS
     let preg = [];
     let resp = [];
     let comodin= "";
@@ -362,9 +372,79 @@ let crearCarta = (cat) => {
 
             <input type="submit" value="Comprobar" id="submit"></input>
 
-            <br><br>`;
+            <br><br>`
+
+    return resp;
 
 }
+
+// window.onload = iniciar;
+
+// let iniciar = () => {
+//     document.getElementById('submit').addEventListener('click', validar, false);
+// }
+let validaResp = (answ) => {
+    let respUsu = answ;
+    console.log("Estas son las buenas oyendo: "+respUsu);
+    
+    let carta = document.querySelector("#carta");
+    carta.addEventListener('submit', function(){
+
+        console.log("*****RESPUESTAS ENVIADAS****");
+
+        let rusu1 = document.querySelector("#usu1").value;
+        let rusu2 = document.querySelector("#usu2").value;
+        let rusu3 = document.querySelector("#usu3").value;
+        let rusu4 = document.querySelector("#usu4").value;
+        let rusu5 = document.querySelector("#usu5").value;
+        let rusu6 = document.querySelector("#usu6").value;
+        let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
+
+        console.log("Estas son las del Usuario: " + rusu);
+        
+
+        let error = false;
+        let mens1 = "Campo vacío";
+        let mens2 = "Fallaste!";
+        let mens3 = "Correcto";
+        let aciertos = 0;
+        let fallos = 0;
+
+        do{
+            for (let i=0; i<6; i++){
+
+                if((rusu[i] === "" || rusu[i] === null)){
+                    console.log(mens1);
+                    error = true;
+                }else if((rusu[i].toLowerCase()) != respUsu[i]){ 
+                    error = true;
+                    console.log(mens2);
+                    fallos += 1;
+                    // casilla con fondo rojo y bloqueada
+                }else{
+                    console.log(mens3);
+                    aciertos += 1;
+                    // casilla con fondo verde y bloqueada 
+                    // sumaría 1 punto al marcador
+                }
+                console.log("Devuelve = " + error);
+                console.log("aCIERTOS = " + aciertos);
+                verResultado.textContent = aciertos;  
+            }
+        }while(aciertos < 4 || fallos < 3);
+
+       /* if (aciertos >= 4){
+            // la alerta de perder aparece
+            document.getElementById("ganar").style.display = "block"
+        }else{
+            // la alerta de ganar
+            document.getElementById("perder").style.display = "block"
+        }*/
+        
+
+    });
+}
+
 
 
 //  **** CODIGO PRINCIPAL ****
