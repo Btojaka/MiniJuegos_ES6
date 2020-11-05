@@ -390,27 +390,81 @@ let validaResp = (answ) => {
     let carta = document.querySelector("#carta");
     carta.addEventListener('submit', function(){
 
-        console.log("*****RESPUESTAS ENVIADAS****");
 
-        let rusu1 = document.querySelector("#usu1").value;
-        let rusu2 = document.querySelector("#usu2").value;
-        let rusu3 = document.querySelector("#usu3").value;
-        let rusu4 = document.querySelector("#usu4").value;
-        let rusu5 = document.querySelector("#usu5").value;
-        let rusu6 = document.querySelector("#usu6").value;
-        let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
-
-        console.log("Estas son las del Usuario: " + rusu);
-        
-
-        let error = false;
-        let mens1 = "Campo vacío";
         let mens2 = "Fallaste!";
         let mens3 = "Correcto";
         let aciertos = 0;
         let fallos = 0;
 
-        do{
+        
+        console.log("*****VALIDANDO RESPUESTAS****");
+
+        let val1 = () =>{
+        // validando la respuesta 1
+        let rusu1 = document.querySelector("#usu1").value;
+            if((rusu1.toLowerCase()) != respUsu[0]){
+                console.log(mens2);
+                return true;
+            }
+            return false;
+        }
+
+        let val2 = () =>{
+            // validando la respuesta 2
+        let rusu2 = document.querySelector("#usu2").value;
+            if((rusu2.toLowerCase()) != respUsu[1]){
+                console.log(mens2);
+                return true;
+            }
+            return false;
+        }
+
+
+        let val3 = () =>{
+            // validando la respuesta 3
+        let rusu3 = document.querySelector("#usu3").value;
+            if((rusu3.toLowerCase()) != respUsu[2]){
+                console.log(mens2);
+                return true;
+            }
+            return false; 
+        }
+
+        let val4 = () =>{
+            // validando la respuesta 3
+        let rusu4 = document.querySelector("#usu4").value;
+            if((rusu4.toLowerCase()) != respUsu[3]){
+                console.log(mens2);
+                return true;
+            }
+            return false;     
+        }
+        let val5 = () =>{
+            // validando la respuesta 3
+        let rusu5 = document.querySelector("#usu5").value;
+            if((rusu5.toLowerCase()) != respUsu[4]){
+                console.log(mens2);
+                return true;
+            }
+            return false;
+        }        
+        let val6 = () =>{
+            // validando la respuesta 3
+        let rusu6 = document.querySelector("#usu6").value;
+            if((rusu6.toLowerCase()) != respUsu[5]){
+                console.log(mens2);
+                return true;
+            }
+            return false;
+        } 
+
+        //
+
+        // let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
+
+        // console.log("Estas son las del Usuario: " + rusu);
+
+        /*do{
             for (let i=0; i<6; i++){
 
                 if((rusu[i] === "" || rusu[i] === null)){
@@ -423,6 +477,7 @@ let validaResp = (answ) => {
                     // casilla con fondo rojo y bloqueada
                 }else{
                     console.log(mens3);
+                    error=false;
                     aciertos += 1;
                     // casilla con fondo verde y bloqueada 
                     // sumaría 1 punto al marcador
@@ -431,7 +486,7 @@ let validaResp = (answ) => {
                 console.log("aCIERTOS = " + aciertos);
                 verResultado.textContent = aciertos;  
             }
-        }while(aciertos < 4 || fallos < 3);
+        }while(aciertos < 4 || fallos < 3);*/
 
        /* if (aciertos >= 4){
             // la alerta de perder aparece
@@ -444,7 +499,6 @@ let validaResp = (answ) => {
 
     });
 }
-
 
 
 //  **** CODIGO PRINCIPAL ****
