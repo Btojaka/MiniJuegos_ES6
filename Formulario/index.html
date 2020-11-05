@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--* Identificador: 1 letra, 8 cifras y 1 letra. Obligatorio.
+***** Nombre y apellidos: cadena de 50 caracteres. Obligatorio.
+* Fecha de nacimiento: campo con formato dd/mm/yyyy. Obligatorio.
+* Correo electronico: en formato varios caracteres (letras, números, puntos o guiones altos o bajos, 20 maximo) seguido de    arroba, letras (20 mÃ¡ximo), punto (1), y 2 o 3 letras.
+* Telefono: con formato + y dos o tres cifras seguido de guion y 9 cifras.
+* Edad: desplegable con texto niña / adulta / jubilada.
+* Club de ski: ckeckbox que, si se pulsa, activa los siguientes campos:
+* Numero de socio: nÃºmero de 5 cifras, del 10000 al 99999.
+* Categoría: infantil / juvenil / senior: radio button.-->
+<body>
+    <section id="registro">
+    <h1>Registro</h1>
+    <div id="inputs">
+        <form action="#" name="formulario" id="formulario">
+            <label for="ident">Identificador</label>
+            <input type="text" id="ident" name="ident" required>
+            
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" max="50">
+            
+            <label for="email">email</label>
+            <input type="email" name="email" id="email">
+            
+            <label for="tel">Teléfono</label>
+            <input type="tel" name="tel" id="tel">
+            
+            <label for="edad">Edad</label>
+            <select name="edad" id="edad">
+                <option name="niña" id="niña">Niño</option>
+                <option name="adulta" id="adulta">Adulto</option>
+                <option name="jubilada" id="jubilada">Jubilado</option>
+            </select>
+            
+            <label for="clubEsqui">Club de esquí</label>
+            <input type="checkbox" name="clubEsqui" id="skiClub">
+            
+            <label for="skiId">Número de socio</label>
+            <input type="text" id="skiId" name="skiId" max="99999" min="10000">
+            
+            <label for="categoria"></label>
+            <input type="radio" name="categoria" id="categoria">
+            
+            <input type="submit" value="Enviar">
+        </form> 
+    </div>
+</section>
+    
+</body>
+<script>
+    let form = document.getElementById('formulario')
+    console.log(form)
+    let id = form.ident;
+    let name = form.name;
+    let email = form.email;
+    let tel = form.tel;
+</script>
+</html>
