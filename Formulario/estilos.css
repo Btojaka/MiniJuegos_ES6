@@ -1,0 +1,116 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Paytone One', sans-serif;
+    /*overflow: hidden;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(rgb(40, 33, 138), rgb(105, 126, 184), #ffff)
+}
+
+#register {
+    margin: 1rem 0rem;
+    min-width: 60vw;
+    min-height: 80vh;
+    background: linear-gradient(145deg, #ffffff, #e3e3e3);
+    box-shadow:  8px 8px 14px rgb(105, 126, 184);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(105, 126, 184);
+    font-weight: 500;
+}
+
+#inputs {
+    min-width: 50vw;
+    min-height: 60vh;
+    padding: 0.5rem;
+    line-height: 1.5;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type=text], select, input[type=date], input[type=number] {
+ width: 100%;
+  padding: 8px 16px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+select, input[type=date] {
+    color:  rgb(105, 126, 184);
+}
+
+#categoria {
+    margin: 0
+}
+
+/* Personalizar el input radio */
+#radios {
+    display: flex;
+    justify-content: center;
+}
+
+#radios label {
+    font-weight: 300;
+}
+.radio {
+    padding: 8px;
+    margin: 0;
+}
+
+input[type=submit] {
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color:  rgb(105, 126, 184);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgb(40, 33, 138)
+  }
+
+  /* Datos del club después de hacer click en club de esqui */
+  #clubData {
+      display: none;
+  }
+
+  /* clase error */
+  .error {
+    border: solid 2px rgb(26, 25, 110);
+}
+
+  .wrong {
+    color: rgb(214, 86, 118);
+    font-size: small;
+    margin-bottom: 10px;
+  }
+
+
+
+  /* Diseño responsive */
+  @media (max-width: 600px) {
+    #register {
+        margin: 0;
+        min-width: 100vw;
+        height: 150vh; 
+        border-radius: 0;   
+    }
+  }
