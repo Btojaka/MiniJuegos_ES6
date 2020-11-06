@@ -400,98 +400,32 @@ let validaResp = (answ) => {
         
         console.log("*****VALIDANDO RESPUESTAS****");
 
-        /*let val1 = () =>{
-        // validando la respuesta 1
+        
+
         let rusu1 = document.querySelector("#usu1").value;
-        // si es diferente a la respuesta buena
-            if((rusu1.toLowerCase()) != respUsu[0]){
-                console.log(mens2); // PRUEBAS
-                fallos += 1;
-                return true;
-            }
-        // Si es exactamente igual a la respuesta buena
-            if((rusu1.toLowerCase()) === respUsu[0]){
-                console.log(mens3); // PRUEBAS
-                aciertos += 1;
-                return false;
-            }
-        // Si no fuera ninguna de las anteriores (por ejemplo "" o null)
-            return true;
-        }
-
-        let val2 = () =>{
-            // validando la respuesta 2
         let rusu2 = document.querySelector("#usu2").value;
-            if((rusu2.toLowerCase()) != respUsu[1]){
-                console.log(mens2);
-                return true;
-            }
-            return false;
-        }
-
-
-        let val3 = () =>{
-            // validando la respuesta 3
         let rusu3 = document.querySelector("#usu3").value;
-            if((rusu3.toLowerCase()) != respUsu[2]){
-                console.log(mens2);
-                return true;
-            }
-            return false; 
-        }
-
-        let val4 = () =>{
-            // validando la respuesta 4
         let rusu4 = document.querySelector("#usu4").value;
-            if((rusu4.toLowerCase()) != respUsu[3]){
-                console.log(mens2);
-                return true;
-            }
-            return false;     
-        }
-        let val5 = () =>{
-            // validando la respuesta 5
         let rusu5 = document.querySelector("#usu5").value;
-            if((rusu5.toLowerCase()) != respUsu[4]){
-                console.log(mens2);
-                return true;
-            }
-            return false;
-        }        
-        let val6 = () =>{
-            // validando la respuesta 6
         let rusu6 = document.querySelector("#usu6").value;
-            if((rusu6.toLowerCase()) != respUsu[5]){
-                console.log(mens2);
-                return true;
-            }
-            return false;
-        } */
+        let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
 
         let validando = () =>{
-            let rusu1 = document.querySelector("#usu1").value;
-            let rusu2 = document.querySelector("#usu2").value;
-            let rusu3 = document.querySelector("#usu3").value;
-            let rusu4 = document.querySelector("#usu4").value;
-            let rusu5 = document.querySelector("#usu5").value;
-            let rusu6 = document.querySelector("#usu6").value;
-            let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
             
-
-            console.log("Estas son las del Usuario: " + rusu);
+            // console.log("Estas son las del Usuario: " + rusu);
                 for (let i=0; aciertos < 4 || fallos < 3; i++){
                     let usuario = rusu[i]; 
                     let buena = respBuenas[i];
 
-                    if((usuario === "" || usuario === null)){
-                        console.log(ususario);
+                    if((usuario === "" || usuario === null)){ 
+                        console.log(usuario);
                         console.log("VACIO");
                     }else if((usuario.toLowerCase()) != buena){ 
                         console.log(usuario);
                         error = true;
                         console.log(mens2);
-                        fallos += 1;
-                        if(fallos >=3){
+                        fallos++;
+                        if(fallos ===3){
                             // la alerta de ganar
                             document.getElementById("perder").style.display = "block"
                         }
@@ -499,8 +433,9 @@ let validaResp = (answ) => {
                     }else{
                         console.log(mens3);
                         error = false;
-                        aciertos += 1;
-                        if (aciertos >= 4){
+                        aciertos++;
+
+                        if (aciertos === 4){
                             // la alerta de perder aparece
                             document.getElementById("ganar").style.display = "block"
                         }
