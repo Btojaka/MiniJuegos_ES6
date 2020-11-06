@@ -384,8 +384,8 @@ let crearCarta = (cat) => {
 //     document.getElementById('submit').addEventListener('click', validar, false);
 // }
 let validaResp = (answ) => {
-    let respUsu = answ;
-    console.log("Estas son las buenas oyendo: "+respUsu);
+    let respBuenas = answ;
+    console.log("Estas son las buenas oyendo: "+respBuenas);
     
     let carta = document.querySelector("#carta");
     carta.addEventListener('submit', function(){
@@ -395,18 +395,28 @@ let validaResp = (answ) => {
         let mens3 = "Correcto";
         let aciertos = 0;
         let fallos = 0;
+        let error = false;
 
         
         console.log("*****VALIDANDO RESPUESTAS****");
 
-        let val1 = () =>{
+        /*let val1 = () =>{
         // validando la respuesta 1
         let rusu1 = document.querySelector("#usu1").value;
+        // si es diferente a la respuesta buena
             if((rusu1.toLowerCase()) != respUsu[0]){
-                console.log(mens2);
+                console.log(mens2); // PRUEBAS
+                fallos += 1;
                 return true;
             }
-            return false;
+        // Si es exactamente igual a la respuesta buena
+            if((rusu1.toLowerCase()) === respUsu[0]){
+                console.log(mens3); // PRUEBAS
+                aciertos += 1;
+                return false;
+            }
+        // Si no fuera ninguna de las anteriores (por ejemplo "" o null)
+            return true;
         }
 
         let val2 = () =>{
@@ -431,7 +441,7 @@ let validaResp = (answ) => {
         }
 
         let val4 = () =>{
-            // validando la respuesta 3
+            // validando la respuesta 4
         let rusu4 = document.querySelector("#usu4").value;
             if((rusu4.toLowerCase()) != respUsu[3]){
                 console.log(mens2);
@@ -440,7 +450,7 @@ let validaResp = (answ) => {
             return false;     
         }
         let val5 = () =>{
-            // validando la respuesta 3
+            // validando la respuesta 5
         let rusu5 = document.querySelector("#usu5").value;
             if((rusu5.toLowerCase()) != respUsu[4]){
                 console.log(mens2);
@@ -449,53 +459,65 @@ let validaResp = (answ) => {
             return false;
         }        
         let val6 = () =>{
-            // validando la respuesta 3
+            // validando la respuesta 6
         let rusu6 = document.querySelector("#usu6").value;
             if((rusu6.toLowerCase()) != respUsu[5]){
                 console.log(mens2);
                 return true;
             }
             return false;
-        } 
+        } */
 
-        //
+        let validando = () =>{
+            let rusu1 = document.querySelector("#usu1").value;
+            let rusu2 = document.querySelector("#usu2").value;
+            let rusu3 = document.querySelector("#usu3").value;
+            let rusu4 = document.querySelector("#usu4").value;
+            let rusu5 = document.querySelector("#usu5").value;
+            let rusu6 = document.querySelector("#usu6").value;
+            let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
+            
 
-        // let rusu = [rusu1, rusu2, rusu3, rusu4, rusu5, rusu6];
+            console.log("Estas son las del Usuario: " + rusu);
+                for (let i=0; aciertos < 4 || fallos < 3; i++){
+                    let usuario = rusu[i]; 
+                    let buena = respBuenas[i];
 
-        // console.log("Estas son las del Usuario: " + rusu);
-
-        /*do{
-            for (let i=0; i<6; i++){
-
-                if((rusu[i] === "" || rusu[i] === null)){
-                    console.log(mens1);
-                    error = true;
-                }else if((rusu[i].toLowerCase()) != respUsu[i]){ 
-                    error = true;
-                    console.log(mens2);
-                    fallos += 1;
-                    // casilla con fondo rojo y bloqueada
-                }else{
-                    console.log(mens3);
-                    error=false;
-                    aciertos += 1;
-                    // casilla con fondo verde y bloqueada 
-                    // sumaría 1 punto al marcador
+                    if((usuario === "" || usuario === null)){
+                        console.log(ususario);
+                        console.log("VACIO");
+                    }else if((usuario.toLowerCase()) != buena){ 
+                        console.log(usuario);
+                        error = true;
+                        console.log(mens2);
+                        fallos += 1;
+                        if(fallos >=3){
+                            // la alerta de ganar
+                            document.getElementById("perder").style.display = "block"
+                        }
+                        // casilla con fondo rojo y bloqueada
+                    }else{
+                        console.log(mens3);
+                        error = false;
+                        aciertos += 1;
+                        if (aciertos >= 4){
+                            // la alerta de perder aparece
+                            document.getElementById("ganar").style.display = "block"
+                        }
+                        // casilla con fondo verde y bloqueada 
+                        // sumaría 1 punto al marcador
+                    }
+                    console.log("Devuelve = " + error);
+                    console.log("aCIERTOS = " + aciertos);
+                    verResultado.textContent = aciertos;
+                      
                 }
-                console.log("Devuelve = " + error);
-                console.log("aCIERTOS = " + aciertos);
-                verResultado.textContent = aciertos;  
-            }
-        }while(aciertos < 4 || fallos < 3);*/
+                
 
-       /* if (aciertos >= 4){
-            // la alerta de perder aparece
-            document.getElementById("ganar").style.display = "block"
-        }else{
-            // la alerta de ganar
-            document.getElementById("perder").style.display = "block"
-        }*/
-        
+                
+        }
+
+        validando();
 
     });
 }
