@@ -1,76 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formularios</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./formularios.js"></script>
-</head>
-
-<body>
+  </head>
+  <body>
     <section id="register">
-        <h1>Formulario de Registro</h1>
-        <div id="inputs">
-            <form name="formulario" id="miFormulario">
-                <label for="ident">Identificador *</label>
-                <input type="text" id="ident" name="ident" maxlength="10" required
-                    pattern="[A-Za-z]{1}[0-9]{8}[a-zA-z]{1}" placeholder="1 (A-Za-z) + 8 números + 1 (A-Za-z) "/><br />
-                <p id="errorIdent"></p>
-                <br />
-                <label for="name">Nombre * </label>
-                <input type="text" id="name" name="name" maxlength="50" pattern="[A-Za-z]{2,50}" required /><br />
-                <p id="errorName"></p>
-                <br />
-                <label for="date">Fecha de nacimiento *</label>
-                <input type="date" name="date" id="date" required /><br />
-                <p id="errorDate"></p>
-                <br />
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" pattern="[A-Za-z-_\.]{1,20}@([A-Za-z]{1,20}\.)[a-z]{2,3}" placeholder="ejemplo@ejemplo.com" required /><br />
-                <p id="errorEmail"></p>
-                <br />
-                <label for="tel">Teléfono</label>
-                <input type="text" name="tel" id="tel" pattern="(\+[0-9]{2,3})[ -][0-9]{9}" placeholder="+34 123456789"/><br />
-                <p id="errorTel"></p>
-                <br />
-                <label for="edad">Edad</label>
-                <select name="edad" id="edad">
-                    <option id="child" value="child">Niño</option>
-                    <option id="adult" value="adult">Adulto</option>
-                    <option id="retired" value="retired">Jubilado</option>
-                </select>
-                <br /><br />
-                <label for="skiClub">Club de esquí</label>
-                <input type="checkbox" name="skiClub" id="skiClub" /><br /><br />
-                <div id="clubData">
-                    <label for="skiId">Número de socio</label>
-                    <input type="number" id="nSocio" name="skiId" min="10000" max="99999" /><br />
-                    <p id="errorNsocio">
-                    </p>
-                    <br />
-                    <p id="categoria"><strong>Categoría:</strong></p>
-                    <div id="radios">
-                        <p class="radio">
-                            <label for="child">Infantil</label>
-                            <input type="radio" name="category" id="infant" value="infant" />
-                        </p>
-                        <p class="radio">
-                            <label for="adult">Juvenil</label>
-                            <input type="radio" name="category" id="juvenil" value="juvenil" />
-                        </p>
-                        <p class="radio">
-                            <label for="senior">Senior</label>
-                            <input type="radio" name="category" id="senior" value="senior" />
-                        </p>
-                    </div>
-                </div>
+      <h1>Registro</h1>
+      <div id="inputs">
+        <form name="formulario" id="miFormulario">
+          <label for="ident">Identificador *</label>
+          <input type="text" id="ident" name="ident" maxlength="10" required 
+          pattern="[A-Za-z]{1}[0-9]{8}[a-zA-z]{1}"
+          /><br /><p id="errorIdent"></p><br />
+          <label for="name">Nombre * </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            maxlength="50"
+            pattern="[A-Za-z]{2,50}"
+           required
+          /><br />
+          <p id="errorName"></p>
+          <br />
+          <label for="date">Fecha de nacimiento *</label>
+          <input type="date" name="date" id="date" required/><br />
+          <p id="errorDate"></p>
+          <br />
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            pattern="[A-Za-z-_\.]{1,20}@([A-Za-z]{1,20}\.)[a-z]{2,3}"
+            required
+          /><br />
+          <p id="errorEmail"></p>
+          <br />
+          <label for="tel">Teléfono</label>
+          <input
+            type="text"
+            name="tel"
+            id="tel"
+            pattern="(\+[0-9]{2,3})[ -][0-9]{9}"
+          /><br />
+          <p id="errorTel"></p>
+          <br />
+          <label for="edad">Edad</label>
+          <select name="edad" id="edad">
+            <option name="child" id="child" value="child">Niño</option>
+            <option name="adult" id="adult" value="adult">Adulto</option>
+            <option name="retired" id="retired" value="retired">
+              Jubilado
+            </option>
+          </select>
+          <br /><br />
+          <label for="skiClub">Club de esquí</label>
+          <input type="checkbox" name="skiClub" id="skiClub" /><br /><br />
+          <div id="clubData">
+            <label for="skiId">Número de socio</label>
+            <input
+              type="number"
+              id="nSocio"
+              name="skiId"
+              min="10000"
+              max="99999"
+            /><br />
+            <p id="errorNsocio">
+            </p>
+            <br />
+            <p id="categoria"><strong>Categoría:</strong></p>
+            <div id="radios">
+              <p class="radio">
+                <label for="child">Infantil</label>
+                <input
+                  type="radio"
+                  name="category"
+                  id="infant"
+                  value="infant"
+                />
+              </p>
+              <p class="radio">
+                <label for="adult">Juvenil</label>
+                <input
+                  type="radio"
+                  name="category"
+                  id="juvenil"
+                  value="juvenil"
+                />
+              </p>
+              <p class="radio">
+                <label for="senior">Senior</label>
+                <input
+                  type="radio"
+                  name="category"
+                  id="senior"
+                  value="senior"
+                />
+              </p>
+            </div>
+          </div>
 
-                <input type="submit" id="enviar">
-            </form>
-        </div>
+          <input type="submit" id="enviar">
+        </form>
+      </div>
     </section>
-</body>
-
+  </body>
 </html>
