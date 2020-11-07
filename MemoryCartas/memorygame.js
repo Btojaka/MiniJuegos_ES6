@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Get the modal
+    // captura el modo
     let modo = document.getElementById("miModo");
     
-      // Cuando el usuario clica fuera del cuadro de dialogo, éste desaparece
+      // Cuando el usuario clica el cuadro de diálogo desaparece
       window.onclick = function (elemento) {
         if (elemento.target == modo) {
           modo.style.display = "none";
@@ -63,9 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         unicorn,
     ];
 
-    //array PRUEBAS 
-    //const arrayCartas = [wizard, dwarf, wizard, dwarf];
-
     // Función que ordena las cartas aleatoriamente
     function ordenaCartas() {
         arrayCartas.sort(() => 0.5 - Math.random());
@@ -97,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < arrayCartas.length; i++) {
             let carta = document.createElement("img");
             carta.setAttribute("src", "./images/colors.svg");
-            carta.setAttribute("data-id", i); // QUE ES ESTO, NO ME ACUERDO
+            carta.setAttribute("data-id", i); 
             carta.classList.add("miestilo");
             carta.addEventListener("click", girarCarta);
             cuadricula.appendChild(carta);
