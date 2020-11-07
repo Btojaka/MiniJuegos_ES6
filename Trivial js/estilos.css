@@ -17,6 +17,24 @@ body {
     width: 70%; 
 }
 
+#perder, #ganar{
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y el centro */
+    padding: 20px;
+    border: 1px solid purple;
+    border-radius: 0.5rem;
+    width: 80%; /* Puede ser más o menos, dependiendo del tamaño de la pantalla */
+    display: none;
+}
+
+.caja {
+    background-color: rgb(26, 138, 167);
+    color: black;
+    width: 60%;
+    display: inline-block;
+    
+}
+
 .grande{
 
     background-color: rgb(156, 151, 172);
@@ -29,7 +47,17 @@ body {
     margin: 10px 0px;
 }
 
+.error {
+    color: rgb(214, 86, 118);
+    font-size: small;
+    margin-bottom: 10px;
+}
 
+.acierto {
+    color: rgb(7, 179, 36);
+    font-size: small;
+    margin-bottom: 10px;
+}
 
 h3, #resultado  {
     font-size: 25px;
@@ -38,6 +66,7 @@ h3, #resultado  {
     color: rgb(5, 1, 5);
 }
 
-#perder, #ganar{
-    display: none;
-}
+
+
+
+
