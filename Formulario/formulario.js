@@ -121,8 +121,8 @@ document.addEventListener(
       //elemento.focus(); no hace falta
     }
 
-    let borrarError = (mensaje, elemento) => {
-      document.getElementById(mensaje).innerHTML = "";
+    let borrarError = (parrafo, elemento) => {
+      document.getElementById(parrafo).innerHTML = "";
       elemento.style.border = '1px solid #ccc';
      
     }
