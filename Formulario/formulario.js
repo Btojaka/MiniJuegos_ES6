@@ -1,10 +1,11 @@
+
 document.addEventListener(
   "DOMContentLoaded",
   function () {
     //SELECCION DEL FORMULARIO
-
+    
     //Conociendo el id
-    let formulario = document.getElementById("miFormulario");
+        const formulario = document.getElementById("miFormulario");
 
     let validarId = () => {
       let elemento = document.getElementById("ident");

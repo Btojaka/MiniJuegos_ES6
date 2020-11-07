@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formularios</title>
+    <title>Formulario de Registro</title>
     <link rel="stylesheet" href="estilos.css" />
-    <script src="./formularios.js"></script>
+    <script src="./formulario.js"></script>
   </head>
   <body>
     <section id="register">
@@ -13,9 +13,16 @@
       <div id="inputs">
         <form name="formulario" id="miFormulario">
           <label for="ident">Identificador *</label>
-          <input type="text" id="ident" name="ident" maxlength="10" required 
-          pattern="[A-Za-z]{1}[0-9]{8}[a-zA-z]{1}"
-          /><br /><p id="errorIdent"></p><br />
+          <input
+            type="text"
+            id="ident"
+            name="ident"
+            maxlength="10"
+            required
+            pattern="[A-Za-z]{1}[0-9]{8}[a-zA-z]{1}"
+          /><br />
+          <p id="errorIdent"></p>
+          <br />
           <label for="name">Nombre * </label>
           <input
             type="text"
