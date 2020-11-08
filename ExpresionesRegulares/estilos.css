@@ -9,7 +9,7 @@ body {
     justify-content: center;
     min-width: 100vw;
     min-height: 100vh;
-    background: url('./Shadow-Fall-Background.svg'); 
+    background: url('./Shadow-Fall-Background.svg');
     color:rgb(66, 149, 204);
 }
 
@@ -83,6 +83,10 @@ button {
     cursor: pointer;
   }
   
+  button:hover {
+    background-color: rgb(40, 33, 138)
+  }
+
   .wrong {
     position: relative;
     right: 33px;
@@ -91,4 +95,14 @@ button {
 
   .right {
     display: none;
+  }
+
+  /* Diseño responsive */
+  @media (max-width: 600px) {
+    section {
+        margin: 0;
+        min-width: 100vw;
+        height: 150vh; 
+        border-radius: 0;
+    }
   }
