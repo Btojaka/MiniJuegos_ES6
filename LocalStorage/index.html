@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="localstorage.js"></script>
+  </head>
+  <body>
+    <section id="register">
+      <h1>Registro</h1>
+
+        <div id ="alerta" class="contenido">
+            <p>Ponte a trabajar, no seas Jessie Pinkman</p>
+        </div>
+
+      <div id="inputs" class="formulario">
+        <form name="formulario" id="miFormulario">
+          <label for="name">Nombre * </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            maxlength="50"
+            pattern="[A-Za-z]{2,50}"
+           required
+          /><br />
+          <p id="errorName"></p>
+          <br />
+          <label for="investigador">Número de Investigador * </label>
+          <input
+            type="text"
+            name="investigador"
+            id="investigador"
+            pattern="(\+[0-9]{8})([A-Za-z]{1})"
+            required
+          /><br />
+          <p id="errorInv"></p>
+          <br />
+            <label for="id">ID del Virus * </label>
+            <input
+                type="text"
+                id="id"
+                name="id"
+                pattern="[0-9]{1,10}"
+                required
+            /><br />
+            <p id="errorId">
+            </p>
+            <br />
+            <label for="firma">Firma * </label>
+            <input
+                type="text"
+                name="firma"
+                id="firma"
+                pattern="([A-Za-z0-9]{8,50})"
+                required
+            /><br />
+            <p id="errorFir"></p>
+            <br />
+            <label for="passw">Contraseña * </label>
+             <!-- S4ND1EG0 + CARECTERES HASTA 50 COMO MAXIMO -->
+            <input
+                type="password"
+                name="firma"
+                id="firma"
+                pattern="([A-Za-z0-9]{0,42})"
+                required
+            /><br />
+            <p id="errorFir"></p>
+            <br />
+            </div>
+          </div>
+          <input type="submit" id="enviar">
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
