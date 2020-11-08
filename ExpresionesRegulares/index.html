@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta type="text" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expresiones regulares</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="./regex.js"></script>
+</head>
+
+<!-- Walter White y Jesse Pinkman tienen que controlar las bolsas de producto azul que cocinan para distribuir en Alburquerque.
+Para ello tienen que crear una web que permita realizar validaciones de una serie de códigos.
+Para ello no crearás un formulario, sino una serie de grupos de los siguientes elementos: párrafo (describe el tipo de validación a realizar) y bajo él una etiqueta, un campo de texto, un botón y una imagen. 
+Al pulsar el botón, si la expresión introducida en el campo de texto es correcta, se mostrará una imagen con un tick verde; de lo contrario se mostrará una cruz roja.
+
+Los campos a validar son:
+Fecha y hora de creación: en formato "dd/mm/aaaa hh:mm".
+Cocinero: será un nombre en clave formado por dos letras en mayúscula, un símbolo y cuatro dígitos (ej. WW$1234)
+Destinatario: estará formado por dos o tres letras mayúsculas correspondientes al estado, un guión bajo, el nombre de la ciudad en minúsculas, dos puntos, y el código de distrito de 4 digitos (ej. NM_alburquerque:1234).
+Gramos: será un número del 1000 al 5000.
+Composición: estará formado por una cantidad en gramos seguida de dos conjuntos de una o dos letras seguidas o no de un número. (ej. 200gC3OH7)-->
+
+<body>
+    <header>
+        <h1>
+            Walter White y Jesse Pinkman
+        </h1>
+    </header>
+    <section>
+        <div id="campo1" class="campo">
+            <p>Formato: dd/mm/aaaa hh:mm</p>
+            <label for="date">Fecha y hora de la creación</label><br>
+            <div class="group">
+                <input type="text" name="date" id="date"></input>
+                <img src="./comprobar.png" alt="" id="rightDate" class="right">
+                <img src="./eliminar.png" alt="" id="wrongDate" class="wrong">
+            </div>
+            <button id="buttonDate">Validar fecha</button>
+        </div>
+        <div id="campo2" class="campo">
+            <p>Nombre en clave formado por dos letras en mayúscula, un símbolo y cuatro dígitos (ej. WW$1234)</p>
+            <label for="cooker">Cocinero</label><br>
+            <div class="group">
+                <input type="text" name="cooker" id="cooker" maxlength="7"></input>
+                <img src="./comprobar.png" alt="" id="rightCooker" class="right">
+                <img src="./eliminar.png" alt="" id="wrongCooker" class="wrong">
+            </div>
+            <button id="buttonCooker">Validar cocinero</button>
+        </div>
+        <div id="campo3" class="campo">
+            <p>Formado por dos o tres letras mayúsculas correspondientes al estado, un guión bajo, el nombre de la
+                ciudad en minúsculas, dos puntos, y el código de distrito de 4 digitos (ej. NM_alburquerque:1234).</p>
+            <label for="dest">Destinatario</label><br>
+            <div class="group">
+                <input type="text" name="dest" id="dest"></input>
+                <img src="./comprobar.png" alt="" id="rightDest" class="right">
+                <img src="./eliminar.png" alt="" id="wrongDest" class="wrong">
+            </div>
+
+            <button id="buttonDest">Validar destinatario</button>
+        </div>
+        <div id="campo4" class="campo">
+            <p>Número del 1000 al 5000.</p>
+            <label for="gr">Gramos</label><br>
+            <div class="group">
+                <p></p>
+                <input type="number" name="gr" id="gr"></input>
+                <img src="./comprobar.png" alt="" id="rightGr" class="right">
+                <img src="./eliminar.png" alt="" id="wrongGr" class="wrong">
+            </div>
+            <button id="buttonGr">Validar gramos</button>
+        </div>
+        <div id="campo5" class="campo">
+            <p>Cantidad en gramos seguida de dos conjuntos de una o dos letras seguidas o no de un número. (ej.
+                200gC3OH7)</p>
+            <label for="composition">Composición</label><br>
+            <div class="group">
+                <input type="text" name="composition" id="composition"></input>
+                <img src="./comprobar.png" alt="" id="rightComp" class="right">
+                <img src="./eliminar.png" alt="" id="wrongComp" class="wrong">
+            </div>
+
+            <button id="buttonComp">Validar composición</button>
+        </div>
+    </section>
+
+</body>
+
+</html>
