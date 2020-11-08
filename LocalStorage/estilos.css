@@ -17,16 +17,15 @@ body {
     top: 0;
     width: 100%; /* total de ancho */
     height: 100%; /* total de altura */
-   
 }
+
 .contenido p {
     text-align: center;
-    color: purple;
+    color: rgb(12, 206, 12);
     font-size: 1.5vw;
 }
 .formulario{
-    background-color: violet; /* color de reserva */
-    overflow: auto; /* Habilita el scroll si es necesario */
+    background-color: rgb(197, 218, 164); /* color de reserva */
 }
 #alerta {
     display: none;
@@ -44,14 +43,14 @@ label {
     font-weight: 600;
 }
 
-input[type=text], select, input[type=date], input[type=number] {
- width: 100%;
-  padding: 8px 16px;
-  margin: 4px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+input[type=text], select, input[type=password]{
+    width: 100%;
+    padding: 8px 16px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 
@@ -67,18 +66,18 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
+}
+
+input[type=submit]:hover {
     background-color: rgb(1, 70, 24)
-  }
+}
 
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     #register {
         margin: 0;
         min-width: 100vw;
         height: 150vh; 
         border-radius: 0;
     }
-  }
+}
