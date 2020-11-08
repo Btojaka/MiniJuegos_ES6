@@ -24,7 +24,7 @@ document.addEventListener(
     // Validar el cocinero
     let validateCooker = () => {
       let cooker = document.getElementById("cooker").value;
-      let regex = /[A-Z]{2}[^\w\s]{1}[0-9]{4}/i;
+      let regex = /^[A-Z]{2}[^\w\s]{1}[0-9]{4}/;
       let match = cooker.match(regex);
       rightWrong(match,"rightCooker", "wrongCooker")
     };
