@@ -1,51 +1,85 @@
 <!DOCTYPE HTML>
 <html lang="es">
-    <head>
-        <meta charset="utf8">
-        <meta name="viewport" content="width = device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TRIVIAL</title>
-        <link rel="stylesheet" href="estilos.css">
-        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
-        
-    </head>
-    <body>
-        <section class="contenedor pequeño">
 
-            <div class="caja">
-                <h1>Trivial</h1>
-                <h2>Casilla final</h2>
-            </div>
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIVIAL</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 
-        </section>
+</head>
 
-        <section class="contenedor grande">
+<body>
+  <div class="background">
 
-            <div  class="contenido">
-                    <!-- Mensajes de error acierto o vacío -->
-                <div id="perder">
-                    <p>¡Has perdido!, vuelve a intentarlo.</p>
-                    <button id="miboton">Nueva partida</button>
-                </div>
+  </div>
+  <section class="contenedor pequeño">
+    <div class="caja">
+      <h1>Trivial</h1>
+      <h2>Casilla final</h2>
+    </div>
 
-            </div>
-            
-            <div class="contenido">
-                    <!-- Mensajes de error acierto o vacío -->
-                <div id="ganar">
-                    <p>¡Has ganado, enhorabuena!</p>
-                    <button id="miboton">Nueva partida</button>
-                </div>
+  </section>
+  <section class="categorias">
+    <h1>Elige una categoría</h1>
+    <div id="radios">
+      <p class="radio">
+        <label for="geografia">Geografía</label>
+        <input type="radio" name="category" value="geografia" id="geografia" onclick="crearCarta(geografia)" />
+      </p>
+      <p class="radio">
+        <label for="espectaculos">Espectáculos</label>
+        <input type="radio" name="category" onclick="crearCarta(espectaculos)" value="espectaculos" />
+      </p>
+      <p class="radio">
+        <label for="historia">Historia</label>
+        <input type="radio" name="category" onclick="crearCarta(historia)" value="historia" />
+      </p>
+      <p class="radio">
+        <label for="ciencia">Ciencia</label>
+        <input type="radio" name="category" onclick="crearCarta(ciencia)" value="ciencia" />
+      </p>
+      <p class="radio">
+        <label for="deporte">Deporte</label>
+        <input type="radio" name="category" onclick="crearCarta(deporte)" value="deporte" />
+      </p>
+    </div>
 
-            </div>
+    <div class="contenedor grande">
 
-            <div id="formulario"></div>
+      <div id="preguntas"></div>
+      <div id="puntuacion">
+        <h3>Puntuación:</h3>
+        <div id="puntuacion">
+          <p>Aciertos: <span id="aciertos">0</span></p>
+          <p>Fallos: <span id="fallos">0</span></p>
+        </div>
+      </div>
 
-            <h3>Puntuación: <span id="resultado"></span></h3>
+    </div>
 
-        </section> 
 
-        <script src="./trivial.js"></script>
-    </body>
+  </section>
+
+  <section id="final">
+    <!-- Mensajes de error acierto o vacío -->
+    <div id="perder">
+      <p>¡Has perdido!, vuelve a intentarlo.</p>
+      <!-- <button id="miboton">Nueva partida</button> -->
+    </div>
+
+    <!-- Mensajes de error acierto o vacío -->
+    <div id="ganar">
+      <p>¡Has ganado, enhorabuena!</p>
+      <!-- <button id="miboton">Nueva partida</button> -->
+    </div>
+  </section>
+
+  </div>
+
+  <script src="./trivial.js"></script>
+</body>
 
 </html>

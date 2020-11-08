@@ -6,15 +6,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .contenedor {
     text-align: center;
-    padding:40px;
+    padding: 15px;
     display: inline-block; 
     left: 0;
     top: 0;
     width: 70%; 
+    min-width: 100vw;
+}
+
+#final {
+    height: 100vh;
+    width: 100vw;
+    background-color:  rgba(26, 138, 167, 0.9);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
 }
 
 #perder, #ganar{
@@ -25,6 +39,7 @@ body {
     border-radius: 0.5rem;
     width: 80%; /* Puede ser más o menos, dependiendo del tamaño de la pantalla */
     display: none;
+    transition: all 3s ease;
 }
 
 .caja {
@@ -32,30 +47,28 @@ body {
     color: black;
     width: 60%;
     display: inline-block;
-    
+    border-radius: 30px;
 }
 
 .grande{
-
-    background-color: rgb(156, 151, 172);
+    /* background-color: rgb(156, 151, 172); */
     font-style: normal; 
     overflow: auto; /* Habilita el scroll si es necesario */
 }
 .pequeño{
-
     background-image: url("./images/questions.jpg");
     margin: 10px 0px;
 }
 
-.error {
+#fallos {
     color: rgb(214, 86, 118);
-    font-size: small;
+    font-size: medium;
     margin-bottom: 10px;
 }
 
-.acierto {
+#aciertos {
     color: rgb(7, 179, 36);
-    font-size: small;
+    font-size: medium;
     margin-bottom: 10px;
 }
 
@@ -66,7 +79,89 @@ h3, #resultado  {
     color: rgb(5, 1, 5);
 }
 
+#p0, #p1, #p2, #p3, #p4, #p5 {
+    min-width: 70vw;
+    max-width: 70vw;
+    min-height: 50px;
+}
 
+/* .categorias {
+    background-color: #cccc;
+} */
+
+.categorias h1 {
+    text-align: center;
+    padding: 40px;
+}
+
+/* categorias */
+.geografia {
+    background-color: rgb(245, 216, 173);
+    color: brown;
+}
+
+.historia {
+    background-color: yellow;
+    color: black;
+}
+
+.arte {
+    background-color: palevioletred;
+    color: black;
+}
+
+.deporte {
+    background-color: paleturquoise;
+    color: blue;
+}
+
+.espectaculos {
+    background-color: blueviolet;
+}
+
+.ciencia {
+    background-color: green;
+}
+
+
+input[type=text] {
+    width: 60%;
+     padding: 8px 16px;
+     margin: 4px 0;
+     display: inline-block;
+     border: 1px solid rgb(26, 138, 167);
+     border-radius: 4px;
+     box-sizing: border-box;
+   }
+   
+   /* Personalizar el input radio */
+   #radios {
+       display: flex;
+       justify-content: center;
+   }
+   
+   #radios label {
+       font-weight: 300;
+   }
+   .radio {
+       padding: 8px;
+       margin: 0;
+   }
+
+   input:checked {
+    border: 6px solid black;
+  }
+
+  button {
+      border-radius: 5px;
+      background-color: rgb(26, 138, 167);
+      color: white;
+      padding: 5px;
+  }
+
+  #submit {
+      background-color: rgb(49, 25, 134);
+  }
 
 
 
