@@ -1,5 +1,5 @@
 // Preguntas y respuestas de cada categoría 
-geografia = [
+let geografia = [
     {
         pregunta: " Capital de España? ",
         respuesta: "madrid"
@@ -263,19 +263,22 @@ let deporte = [
 let crearHTML = (categoriaMezclada) => {
 let html = 
 `
-      <button onclick="pregunta(0)" class=${micategoria} id="p0">${categoriaMezclada[0].pregunta}</button><br><br>
-      
-      <button  onclick="pregunta(1)" class=${micategoria} id="p1">${categoriaMezclada[1].pregunta}</button><br><br>
-     
-      <button  onclick="pregunta(2)" class=${micategoria} id="p2">${categoriaMezclada[2].pregunta}</button><br><br>
-     
-      <button onclick="pregunta(3)" class=${micategoria} id="p3">${categoriaMezclada[3].pregunta}</button><br><br>
-      <button  onclick="pregunta(4)" class=${micategoria} id="p4" >${categoriaMezclada[4].pregunta}</button><br><br>
-      <button  onclick="pregunta(5)" class=${micategoria} id="p5">${categoriaMezclada[5].pregunta}</button><br><br>
-      <label for="respuestaUsu"></label>
-      <input type="text" id="respuestaUsu"><br><br>
-      <button onclick="checkrespuesta()" id="submit">Comprobar respuesta</button>
-      <br><br>`;
+    <button onclick="pregunta(0)" class=${micategoria} id="p0">${categoriaMezclada[0].pregunta}</button><br><br>
+    
+    <button  onclick="pregunta(1)" class=${micategoria} id="p1">${categoriaMezclada[1].pregunta}</button><br><br>
+    
+    <button  onclick="pregunta(2)" class=${micategoria} id="p2">${categoriaMezclada[2].pregunta}</button><br><br>
+    
+    <button onclick="pregunta(3)" class=${micategoria} id="p3">${categoriaMezclada[3].pregunta}</button><br><br>
+    
+    <button  onclick="pregunta(4)" class=${micategoria} id="p4" >${categoriaMezclada[4].pregunta}</button><br><br>
+    
+    <button  onclick="pregunta(5)" class=${micategoria} id="p5">${categoriaMezclada[5].pregunta}</button><br><br>
+    
+    <label for="respuestaUsu"></label>
+    <input type="text" id="respuestaUsu"><br><br>
+    <button onclick="checkrespuesta()" id="submit">Comprobar respuesta</button>
+    <br><br>`;
 return html;
 };
 
@@ -287,42 +290,48 @@ let categoriaMezclada = [];
 let micategoria;
 
 let crearCarta = (categoria) => {
+    /* array auxiliar para rellenarla con la mezclada y poder modificar su contenido y su length */
+    let comodin = categoria 
+    console.log(comodin.length);
+    let aux = [];
 //micategoria = categoria; PONER NOMBRE CATEGORIA
-switch (categoria[0].respuesta) {
-  case 'madrid':
-    micategoria = 'geografia'
-    break;
-  case "leonardo da vinci":
-    micategoria = 'arte'
-    break;
-  case "2":
-    micategoria = 'espectaculos'
-    break;
-  case "felipe":
-    micategoria = 'historia'
-    break;
-  case "60":
-    micategoria = 'ciencia'
-    break
-  case "beisbol":
-    micategoria = 'deportes'
-    break
-}
+    switch (categoria[0].respuesta) {
+        case 'madrid':
+            micategoria = 'geografia'
+            break;
+        case "leonardo da vinci":
+            micategoria = 'arte'
+            break;
+        case "2":
+            micategoria = 'espectaculos'
+            break;
+        case "felipe":
+            micategoria = 'historia'
+            break;
+        case "60":
+            micategoria = 'ciencia'
+            break
+        case "beisbol":
+            micategoria = 'deportes'
+            break
+    }
     
 //vaciar el array por si ya tuviera preguntas
 categoriaMezclada = []
-//mezclar el array
-for (let i = 0; i < 6; i++) {
-  let indice = Math.floor(Math.random() * 9);
-  categoriaMezclada.push(categoria[indice]);
-  console.log(categoria[indice])
-  categoria.splice(indice, 1);
-  console.log(categoria[indice]);
-}
-//creo el html de las preguntas
-let html = crearHTML(categoriaMezclada)
-document.getElementById('preguntas').innerHTML = html;
-};
+
+
+    //mezclar el array
+    for (let i = 0; i < 6; i++) {
+        let indice = Math.floor(Math.random() * (comodin.length));
+        categoriaMezclada.push(comodin[indice]);
+        console.log(categoriaMezclada);
+        comodin.splice(indice, 1);
+        console.log(comodin[indice]);
+    }
+    //creo el html de las preguntas
+    let html = crearHTML(categoriaMezclada)
+    document.getElementById('preguntas').innerHTML = html;
+    };
 
 //2º hace click en la pregunta que quiere responder
 //se guarda el numero de pregunta y se inicializan las correctas e incorrectas
@@ -343,23 +352,23 @@ let respuestaUsu = document.getElementById("respuestaUsu").value;
 console.log(respuestaUsu);
 //si es correcta sumo una y si es incorrecta sumo una incorrecta
 if (categoriaMezclada[numeroRespuesta].respuesta === respuestaUsu.toLowerCase()) {
-  correctas++;
-  document.getElementById('aciertos').innerHTML = correctas;
-} else {
-  incorrectas++;
-  document.getElementById('fallos').innerHTML = incorrectas;
-}
+    correctas++;
+    document.getElementById('aciertos').innerHTML = correctas;
+    } else {
+    incorrectas++;
+    document.getElementById('fallos').innerHTML = incorrectas;
+    }
 
 if (correctas == 4) {
-  document.getElementById('preguntas').style.display = "none"
-  document.getElementById('ganar').style.display = "block";
-  document.getElementById('final').style.display = "flex";
-} else if (incorrectas == 3) {
-  document.getElementById('preguntas').style.display = "none"
-  document.getElementById('perder').style.display = "block";
-  document.getElementById('final').style.display = "flex";
-  
-}
+    document.getElementById('preguntas').style.display = "none"
+    document.getElementById('ganar').style.display = "block";
+    document.getElementById('final').style.display = "flex";
+    } else if (incorrectas == 3) {
+    document.getElementById('preguntas').style.display = "none"
+    document.getElementById('perder').style.display = "block";
+    document.getElementById('final').style.display = "flex";
+    
+    }
 //desaparecer pregunta
 document.getElementById(`p${numeroRespuesta}`).style.display = 'none';
 
