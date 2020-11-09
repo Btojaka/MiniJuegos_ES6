@@ -76,12 +76,12 @@ let arte = [
         respuesta: "fahrenheit"
     },
     {
-        pregunta: " GEOEn qué hemisferio se encuentra Nigeria? Norte o Sur?",
-        respuesta: "norte"
+        pregunta: " Cuál es el río que pasa por Valencia.? (1 palabra)",
+        respuesta: "turia"
     },
     {
-        pregunta: " GEOCuál es el estado más grande de los Estados Unidos?",
-        respuesta: "alaska"
+        pregunta: " Cuántas islas forman las islas Baleares?(numero) ",
+        respuesta: "5"
     }
 ];
 
@@ -229,32 +229,32 @@ let deporte = [
         respuesta: "3"
     },
     {
-        pregunta: " DE el mundo? (en número)",
-        respuesta: "6"
+        pregunta: " Como se llama la liga de baloncesto en EEUU? (1 palabra)",
+        respuesta: "NBA"
     },
     {
-        pregunta: " DE es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "el everest"
+        pregunta: " Como se llama la liga de FUTBOL AMERICANO en EEUU? (1 palabra)",
+        respuesta: "NFL"
     },
     {
-        pregunta: " DE país tiene mayor número de habitantes en el mundo?",
-        respuesta: "china"
+        pregunta: " Deporte de invierno que empieza por E?(una palabra sin tildes)",
+        respuesta: "esqui"
     },
     {
-        pregunta: " DE qué país se encuentra el Taj Mahal? (con artículo)",
-        respuesta: "la india"
+        pregunta: " Cómo se llama el deporte que se practica con stick? (1 palabra)",
+        respuesta: "hockey"
     },
     {
-        pregunta: " DE países tiene África? 54, 37 o 61?",
-        respuesta: "54"
+        pregunta: " Cuál es el deporte en el que hay que meter un pelota pequeña en hoyos?",
+        respuesta: "golf"
     },
     {
-        pregunta: " DE qué hemisferio se encuentra Nigeria? Norte o Sur?",
-        respuesta: "norte"
+        pregunta: " Qué disciplina se practica con caballos?",
+        respuesta: "equitacion"
     },
     {
-        pregunta: " DE es el estado más grande de los Estados Unidos?",
-        respuesta: "alaska"
+        pregunta: " En qué deporte se deslizan sobre las olas con una tabla?",
+        respuesta: "surf"
     }
 ];
 
