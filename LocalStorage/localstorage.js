@@ -8,9 +8,9 @@ let validarNombre = () => {
     //borrarError('errorName', elemento);
     if (!elemento.checkValidity()) {
       if(elemento.validity.valueMissing){
-          error2(elemento, "Debe introducir un nombre", 'errorName');
+          error(elemento, "Debe introducir un nombre", 'errorName');
       } else if (elemento.validity.patternMismatch){
-          error2(elemento, "Formato correcto: 2-32 letras mayúsculas o minúsculas.", 'errorName');
+          error(elemento, "Formato correcto: 2-32 letras mayúsculas o minúsculas.", 'errorName');
      }
       return false;
     }
@@ -59,6 +59,7 @@ let validarId = () => {
     }
     return true;
   }
+
   let error = (elemento, mensaje, lugar) => {
     document.getElementById(lugar).innerHTML = mensaje;
     document.getElementById(lugar).className = 'wrong'
@@ -93,22 +94,57 @@ let validacionFinal = () => {
 document.getElementById("enviar").addEventListener('click', validar, false);
 
 if (validacionFinal){
-    //obtener tu form desde el HTML 
-    let nombre = document.getElementById("name");
-    let investigador = document.getElementById("investigador");
-    let id = document.getElementById("id");
-    let firma = document.getElementById("firma");
-    let password = document.getElementById("password");
+    let localStorageKeyName = 'data';
+    
+    document.getElementById("enviar").addEventListener('click', () => {
+        let nombre = document.getElementById("name");
+        let investigador = document.getElementById("investigador");
+        let id = document.getElementById("id");
+        let firma = document.getElementById("firma");
 
-    localStorage.setItem('nombre', nombre);
-    localStorage.setItem('investigador', investigador);
-    localStorage.setItem('ID', id);
-    localStorage.setItem('firma', firma);
-    localStorage.setItem('password', password);
-        
-//para probar que se han guardado
-console.log(localStorage);
+        let signature = {
+            nombre: nombre.value,
+            investigador: investigador.value,
+            id: id.value,
+            firma: firma.value
+        };
+
+        // añadir al localStorage
+        appendObjectToLocalStorage(signature);
+    })
+
+
+    function appendObjectToLocalStorage(obj) {
+        let signatures = [],
+            dataInLocalStorage = localStorage.getItem(localStorageKeyName);
+
+        if (dataInLocalStorage !== null) {
+            signatures = JSON.parse(dataInLocalStorage);
+        }
+
+        signatures.push(obj);
+
+        localStorage.setItem(localStorageKeyName, JSON.stringify(signatures));
+    }
+
+    document.write("datos guardados: " + localStorage);
+    console.log(localStorage);
 }
+
+localStorage.clear();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
