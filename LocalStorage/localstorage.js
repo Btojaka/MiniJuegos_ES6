@@ -1,5 +1,24 @@
+// Mensaje si no escribes en 15s
 
-// 1º Validación del fomrulario
+// 1º Validación del fomrulario campos vacios
+
+setTimeout(() => {
+    let alerta = document.getElementById("alerta");
+    let contenido = document.getElementById("contenido");
+    let nom = document.getElementById("name");
+    let inv = document.getElementById("investigador");
+    let ident = document.getElementById("id");
+    let sign = document.getElementById("firma");
+    
+    if((nom.validity.valueMissing)&& (inv.validity.valueMissing) && (ident.validity.valueMissing) && (sign.validity.valueMissing)){
+        alerta.style.display = "block";
+        contenido.style.display = "block";
+    } else{
+        //el botón enviar inicia la función validar
+        document.getElementById("enviar").addEventListener('click', validar, false);
+    }
+    console.log("entrando en alerta");
+}, 5000);
 
 // validaciones individuales
 
@@ -90,11 +109,11 @@ let validacionFinal = () => {
     }
 }
 
-//el botón enviar inicia la función validar
-document.getElementById("enviar").addEventListener('click', validar, false);
+
+// 2º cuando la validación es correcta se almacenan los datos en localStorage
 
 if (validacionFinal){
-    let localStorageKeyName = 'data';
+    let localStorageKeyName = ['data'];
     
     document.getElementById("enviar").addEventListener('click', () => {
         let nombre = document.getElementById("name");
@@ -127,11 +146,10 @@ if (validacionFinal){
         localStorage.setItem(localStorageKeyName, JSON.stringify(signatures));
     }
 
-    document.write("datos guardados: " + localStorage);
-    console.log(localStorage);
+    console.log(localStorage); // visualizar en consola el localStorage
 }
 
-localStorage.clear();
+ localStorage.clear(); // limipiar almacenamiento 
 
 
 
