@@ -186,32 +186,32 @@ let ciencia = [
         respuesta: "el amazonas"
     },
     {
-        pregunta: " CI el mundo? (en número)",
-        respuesta: "6"
+        pregunta: " A qué le tiene miedo una persona que sufre claustrofobia?(1 palabra)",
+        respuesta: "espacios"
     },
     {
-        pregunta: " CI es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "el everest"
+        pregunta: " Cómo se llaman las células nerviosas?",
+        respuesta: "neuronas"
     },
     {
-        pregunta: " CI país tiene mayor número de habitantes en el mundo?",
-        respuesta: "china"
+        pregunta: " Quién inventó el telescopio reflector?(apellido)",
+        respuesta: "newton"
     },
     {
-        pregunta: " CI qué país se encuentra el Taj Mahal? (con artículo)",
-        respuesta: "la india"
+        pregunta: " Qué elemento contienen todos los componentes orgánicos?",
+        respuesta: "carbono"
     },
     {
-        pregunta: " CI países tiene África? 54, 37 o 61?",
-        respuesta: "54"
+        pregunta: " Cómo se llaman las líneas que unen los puntos de igual temperatura?",
+        respuesta: "isobaras"
     },
     {
-        pregunta: " CI qué hemisferio se encuentra Nigeria? Norte o Sur?",
-        respuesta: "norte"
+        pregunta: " En qué lado del cuerpo está el hígado?",
+        respuesta: "derecho"
     },
     {
-        pregunta: " CI es el estado más grande de los Estados Unidos?",
-        respuesta: "alaska"
+        pregunta: " Con qué se suele arreglar un diente con caries?",
+        respuesta: "empaste"
     }
 ];
 
