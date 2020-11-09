@@ -2,10 +2,8 @@
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    //SELECCION DEL FORMULARIO
-    
-    //Conociendo el id
-        const formulario = document.getElementById("miFormulario");
+    // capturamos las respuestas introducidas y las validamos    
+    // validaciones individuales
 
     let validarId = () => {
       let elemento = document.getElementById("ident");
@@ -74,7 +72,6 @@ document.addEventListener(
       return true;
       
     }
-
 
     let validarClub = () => {
       let elemento = document.getElementById("nSocio");

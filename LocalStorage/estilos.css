@@ -27,6 +27,13 @@ body {
 .formulario{
     background-color: rgb(197, 218, 164); /* color de reserva */
 }
+
+.wrong {
+    color: rgb(214, 86, 118);
+    font-size: small;
+    margin-bottom: 10px;
+  }
+
 #alerta {
     display: none;
     align-items: center;
