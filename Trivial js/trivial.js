@@ -18,7 +18,7 @@ let geografia = [
     },
     {
         pregunta: " Cuál es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "everest"
+        respuesta: "el everest"
     },
     {
         pregunta: " Qué país tiene mayor número de habitantes en el mundo?",
@@ -56,24 +56,24 @@ let arte = [
         respuesta: "los girasoles"
     },
     {
-        pregunta: " GEOCuántos continentes hay en el mundo? (en número)",
-        respuesta: "6"
+        pregunta: " En qué manifestación artística se sacan moldes?",
+        respuesta: "escultura"
     },
     {
-        pregunta: " GEOCuál es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "el everest"
+        pregunta: " Quién escribió -Poeta en Nueva York?- (nombre y 2 apellidos)",
+        respuesta: "federico garcía lorca "
     },
     {
-        pregunta: " GEOQué país tiene mayor número de habitantes en el mundo?",
-        respuesta: "china"
+        pregunta: " Qué pseudónimo usaba el escrito inglés Eric Arthur Blair?",
+        respuesta: "george orwell"
     },
     {
-        pregunta: " GEOEn qué país se encuentra el Taj Mahal? (con artículo)",
-        respuesta: "la india"
+        pregunta: " Con qué nombre firmaba Vincent Van Gogh sus pinturas?",
+        respuesta: "vincent"
     },
     {
-        pregunta: " GEOCuántos países tiene África? 54, 37 o 61?",
-        respuesta: "54"
+        pregunta: " Cómo se llama el libro de Ray Bradbury en el que se queman libros?",
+        respuesta: "fahrenheit"
     },
     {
         pregunta: " GEOEn qué hemisferio se encuentra Nigeria? Norte o Sur?",
@@ -99,32 +99,32 @@ let espectaculos = [
         respuesta: "el rey leon"
     },
     {
-        pregunta: " ESPEC el mundo? (en número)",
-        respuesta: "6"
+        pregunta: " A qué tipo de instrumento pertenece la citara?",
+        respuesta: "cuerda"
     },
     {
-        pregunta: " ESP es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "el everest"
+        pregunta: " Quién protagonizó Pretty Woman?(nombre y apellido de la chica)",
+        respuesta: "julia roberts"
     },
     {
-        pregunta: " ESP país tiene mayor número de habitantes en el mundo?",
-        respuesta: "china"
+        pregunta: " En qué ciudad vivía el Mago de Oz?(3 palabras)",
+        respuesta: "la ciudad esmeralda"
     },
     {
-        pregunta: " ESP qué país se encuentra el Taj Mahal? (con artículo)",
-        respuesta: "la india"
+        pregunta: " Qué actor fue el Agente 007 que luchó contra el Dr. No?",
+        respuesta: "sean connery"
     },
     {
-        pregunta: " ESP países tiene África? 54, 37 o 61?",
-        respuesta: "54"
+        pregunta: " Qué película creó la palabra mágica “supercalifragilisticoespialidoso”?",
+        respuesta: "mary poppins"
     },
     {
-        pregunta: " ESP qué hemisferio se encuentra Nigeria? Norte o Sur?",
-        respuesta: "norte"
+        pregunta: " Cuál es la nacionalidad de Ben Kingsley, ganador del oscar por Gandhi?(sin tildes)",
+        respuesta: "britanico"
     },
     {
-        pregunta: " ESP es el estado más grande de los Estados Unidos?",
-        respuesta: "alaska"
+        pregunta: " Qué actor español encarnó a Manolo Escobar en una película coprotagonizada con Penélope Cruz?",
+        respuesta: "javier bardem"
     }
 ];
 
@@ -143,32 +143,32 @@ let historia = [
         respuesta: "santa maria, la pinta, la niña"
     },
     {
-        pregunta: " HIS el mundo? (en número)",
-        respuesta: "6"
+        pregunta: " De qué país europeo fue colonia Mozambique?",
+        respuesta: "portugal"
     },
     {
-        pregunta: " EHISSP es la montaña más alta del mundo? (con artículo el/la)",
-        respuesta: "el everest"
+        pregunta: " De qué país se independizó Eslovenia?",
+        respuesta: "yugoslavia"
     },
     {
-        pregunta: " HIS país tiene mayor número de habitantes en el mundo?",
-        respuesta: "china"
+        pregunta: " Por qué romano se llama el mes de Julio así?(2 palabras)",
+        respuesta: "julio cesar"
     },
     {
-        pregunta: " HIS qué país se encuentra el Taj Mahal? (con artículo)",
-        respuesta: "la india"
+        pregunta: " Cuál era la ciudad hogar de Marco Polo?",
+        respuesta: "venecia"
     },
     {
-        pregunta: " HIS países tiene África? 54, 37 o 61?",
-        respuesta: "54"
+        pregunta: " Con qué nombre pasó a la historia la crisis económmica mundial que hubo en el año 1929?",
+        respuesta: "crack del 29"
     },
     {
-        pregunta: " HIS qué hemisferio se encuentra Nigeria? Norte o Sur?",
-        respuesta: "norte"
+        pregunta: " Qué conocida batalla marítima tuvo lugar en el año 1805?(solo el nombre)",
+        respuesta: "trafalgar "
     },
     {
-        pregunta: " HIS es el estado más grande de los Estados Unidos?",
-        respuesta: "alaska"
+        pregunta: " Qué moneda se usaba en España antes de la llegada del euro?",
+        respuesta: "peseta"
     }
 ];
 
