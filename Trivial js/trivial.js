@@ -230,11 +230,11 @@ let deporte = [
     },
     {
         pregunta: " Como se llama la liga de baloncesto en EEUU? (1 palabra)",
-        respuesta: "NBA"
+        respuesta: "nba"
     },
     {
         pregunta: " Como se llama la liga de FUTBOL AMERICANO en EEUU? (1 palabra)",
-        respuesta: "NFL"
+        respuesta: "nfl"
     },
     {
         pregunta: " Deporte de invierno que empieza por E?(una palabra sin tildes)",
